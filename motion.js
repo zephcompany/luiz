@@ -31,6 +31,67 @@
 
   const isPaused = () => reduced.matches || document.body.classList.contains('paused');
 
+  /* ---------- seleção animada nos destaques (cursor clica, arrasta e seleciona) ---------- */
+  const selTimelines = new Map();
+  function armSel(sel, deferred = false, pieces = [sel]) {
+    const old = selTimelines.get(sel);
+    if (old) { old.scrollTrigger?.kill(); old.kill(); selTimelines.delete(sel); }
+    sel.querySelectorAll('.sel-ui').forEach(n => n.remove());
+    pieces.forEach(p => { if (p !== sel) selTimelines.get(p)?.kill(); });
+    const ui = document.createElement('span');
+    ui.className = 'sel-ui';
+    ui.setAttribute('aria-hidden', 'true');
+    ui.innerHTML = '<span class="sel-box"></span><span class="sel-handles"></span><span class="sel-tag">Headline</span><span class="sel-cursor"><svg class="ico"><use href="#i-pointer"/></svg></span>';
+    sel.appendChild(ui);
+    const box = ui.querySelector('.sel-box');
+    const handles = ui.querySelector('.sel-handles');
+    const tag = ui.querySelector('.sel-tag');
+    const cursor = ui.querySelector('.sel-cursor');
+    const pad = 4;
+    /* Caixa que envolve todas as partes (um <em> pode ter sido fatiado em duas linhas). */
+    const measure = () => {
+      const base = sel.getBoundingClientRect();
+      let l = Infinity, t = Infinity, r = -Infinity, b = -Infinity;
+      pieces.forEach(p => { const k = p.getBoundingClientRect(); l = Math.min(l, k.left); t = Math.min(t, k.top); r = Math.max(r, k.right); b = Math.max(b, k.bottom); });
+      return { x: l - base.left - pad, y: t - base.top - pad, w: r - l + pad * 2, h: b - t + pad * 2 };
+    };
+    const tl = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 3.2, defaults: { ease: 'power2.inOut' } });
+    tl.add(() => {
+      const { x, y, w, h } = measure();
+      tag.textContent = `${Math.round(w - pad * 2)} × ${Math.round(h - pad * 2)}`;
+      gsap.set(box, { left: x, top: y, width: 0, height: 0, opacity: 0 });
+      gsap.set(handles, { left: x - 5, top: y - 5, width: w + 10, height: h + 10, opacity: 0, scale: .6, transformOrigin: '50% 50%' });
+      gsap.set(tag, { left: x + w / 2, top: y + h + 8, xPercent: -50, opacity: 0, y: -6 });
+      gsap.set(cursor, { x: x + w * .78, y: y + h + 34, opacity: 0, scale: 1 });
+    });
+    tl.to(cursor, { opacity: 1, duration: .25 }, .05)
+      .to(cursor, { x: () => measure().x - 2, y: () => measure().y - 2, duration: .75 }, .1)
+      .to(cursor, { scale: .82, duration: .12 })
+      .set(box, { opacity: 1 })
+      .addLabel('drag')
+      .to(cursor, { x: () => { const m = measure(); return m.x + m.w + 2; }, y: () => { const m = measure(); return m.y + m.h + 2; }, duration: 1.05 }, 'drag')
+      .to(box, { width: () => measure().w, height: () => measure().h, duration: 1.05 }, 'drag')
+      .to(cursor, { scale: 1, duration: .15 })
+      .to(handles, { opacity: 1, scale: 1, duration: .3, ease: 'back.out(2)' }, '-=.05')
+      .to(tag, { opacity: 1, y: 0, duration: .3 }, '<')
+      .to(cursor, { x: '+=70', y: '+=46', opacity: 0, duration: .55, ease: 'power2.in' }, '+=.7')
+      .to({}, { duration: 1.6 })
+      .to([box, handles, tag], { opacity: 0, duration: .5, ease: 'power2.out' });
+    tl.scrollTrigger = ScrollTrigger.create({
+      trigger: sel, start: 'top 92%', end: 'bottom 6%',
+      onEnter: () => { if (!deferred || introDone) tl.play(); },
+      onEnterBack: () => { if (!deferred || introDone) tl.play(); },
+      onLeave: () => tl.pause(), onLeaveBack: () => tl.pause()
+    });
+    selTimelines.set(sel, tl);
+    return tl;
+  }
+  function disarmSel() {
+    selTimelines.forEach(tl => { tl.scrollTrigger?.kill(); tl.kill(); });
+    selTimelines.clear();
+    qa('.sel-ui').forEach(n => n.remove());
+  }
+
   /* ---------- títulos: máscara por linha ou palavra ---------- */
   function splitHeading(el) {
     const mode = el.dataset.split === 'words' ? 'words' : 'lines';
@@ -48,8 +109,8 @@
       wordsClass: 'split-word',
       onSplit(self) {
         el.classList.add('is-split');
-        /* O SplitText recria o <em>; devolve o frame de seleção a ele. */
-        if (hadSel) el.querySelectorAll('em').forEach(e => e.classList.add('sel'));
+        /* O SplitText recria o <em>; devolve a seleção animada a ele. */
+        if (hadSel) { const ems = [...el.querySelectorAll('em')]; ems.forEach(e => e.classList.add('sel')); if (ems.length) armSel(ems[0], inHero, ems); }
         const targets = mode === 'words' ? self.words : self.lines;
         const vars = {
           yPercent: 115, duration: mode === 'words' ? 1.1 : 1.05, ease: 'power4.out',
@@ -102,7 +163,7 @@
     tl.to(heroReveals, { opacity: 1, y: 0, duration: 1, stagger: .09, clearProps: 'all', onComplete: () => heroReveals.forEach(el => el.classList.add('is-in')) }, pre ? '-=.3' : '+=.2');
     tl.from(qa('.arc-cover'), { yPercent: 40, opacity: 0, duration: 1.1, ease: 'power3.out', stagger: { each: .045, from: 'center' }, clearProps: 'transform,opacity' }, '<-.2');
     tl.from(qa('.hero-chip'), { opacity: 0, duration: .8, stagger: .15 }, '-=.5');
-    tl.add(() => qa('.hero .sel').forEach(e => e.classList.add('is-on')), '-=.9');
+    tl.add(() => { introDone = true; qa('.hero .sel').forEach(e => selTimelines.get(e)?.play()); }, '-=.6');
     return tl;
   }
 
@@ -169,11 +230,13 @@
   function buildFills() {
     qa('[data-fill]').forEach(el => {
       if (!hasSplit) { el.classList.add('is-split'); return; }
+      const hadSel = Boolean(el.querySelector('em.sel'));
       const split = SplitText.create(el, {
         type: 'words', wordsClass: 'fill-word', autoSplit: true, aria: 'auto', reduceWhiteSpace: false,
         prepareText: text => text.replace(/[ \t\n\r]+/g, ' '),
         onSplit(self) {
           el.classList.add('is-split');
+          if (hadSel) { const ems = [...el.querySelectorAll('em')]; ems.forEach(e => e.classList.add('sel')); if (ems.length) armSel(ems[0], false, ems); }
           return gsap.fromTo(self.words, { opacity: .16 }, {
             opacity: 1, ease: 'none', stagger: .06,
             scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 28%', scrub: .6 }
@@ -212,6 +275,7 @@
 
   /* ---------- ciclo de vida ---------- */
   function destroy() {
+    disarmSel();
     media?.revert(); media = null;
     ctx?.revert(); ctx = null;
     splits.forEach(s => s.revert()); splits = [];
@@ -227,6 +291,7 @@
       else qa('[data-split]').forEach(el => { el.classList.add('is-split'); gsap.from(el, { opacity: 0, y: 30, duration: 1, scrollTrigger: { trigger: el, start: 'top 86%', once: true } }); });
       buildReveals();
       buildFills();
+      qa('.sel').forEach(sel => { if (!selTimelines.has(sel)) armSel(sel, heroIntro && heroIntro.contains(sel)); });
       buildParallax();
       media = gsap.matchMedia();
       media.add('(min-width: 1000px)', () => { const undoFormats = buildFormats(); buildStack(); return () => { undoFormats?.(); }; });

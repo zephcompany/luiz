@@ -21,9 +21,9 @@ Não renomeie o `index.html` nem altere a estrutura das pastas. Inclua o arquivo
 
 - `index.html`: página principal.
 - `sales.css`: todos os estilos (tokens em `:root`, tipografia Manrope + Instrument Serif, botões, cards, faixas, mockups animados e responsivo).
-- `app.js`: header, barra de progresso, FAQ animado, luz de borda que acompanha o cursor nos cards, frames de seleção nos destaques, estados "ao vivo" das demonstrações.
+- `app.js`: header, barra de progresso, FAQ animado, luz de borda que acompanha o cursor nos cards, estados "ao vivo" das demonstrações.
 - `scroll-experience.js`: galeria em arco da hero, Lenis (rolagem suave), seção fixada dos recursos e entrada dos planos.
-- `motion.js`: preloader + entrada da hero, títulos revelados por linha/palavra (SplitText), títulos que se preenchem com o scroll, reveals, timeline fixada dos formatos (blocos trocam conforme o scroll), cards empilhados e wordmark.
+- `motion.js`: preloader + entrada da hero, títulos revelados por linha/palavra (SplitText), títulos que se preenchem com o scroll, seleção animada nos destaques (cursor clica e arrasta, em loop enquanto visível), reveals, timeline fixada dos formatos (blocos trocam conforme o scroll), cards empilhados e wordmark.
 - `menu-highlight.js`: destaque deslizante do menu.
 - `guarantee-seal.js`: movimento do selo de garantia.
 - `flow-bands.js`: faixas horizontais que reagem à velocidade do scroll (param em movimento reduzido).

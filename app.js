@@ -95,17 +95,6 @@
     });
   }
 
-  /* Frame de seleção nos destaques: aparece quando o título entra na tela. */
-  const sels = [...document.querySelectorAll('.sel')];
-  if (sels.length) {
-    if ('IntersectionObserver' in window && !paused) {
-      const io = new IntersectionObserver(entries => entries.forEach(entry => {
-        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('is-on'), 900); io.unobserve(entry.target); }
-      }), { threshold: .6 });
-      sels.forEach(el => io.observe(el));
-    } else sels.forEach(el => el.classList.add('is-on'));
-  }
-
   /* Demonstrações (app, chat): ligam quando entram na tela. */
   if ('IntersectionObserver' in window) {
     const live = new IntersectionObserver(entries => entries.forEach(entry => {
