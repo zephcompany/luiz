@@ -49,13 +49,18 @@ def glue(inner: str) -> str:
                     if words_after >= MIN_WORDS:
                         done = True
                         break
-                # espaço no início do token (antes dele vem uma tag inline)
-                out[i] = '&nbsp;'
                 # colapsa espaços consecutivos
                 j = i - 1
                 while j >= 0 and chars[j] in ' \n\t':
                     out[j] = ''
                     j -= 1
+                # espaço encostado numa quebra <br> (início de linha): fica comum
+                prev_tag = tokens[ti - 1] if ti > 0 else ''
+                if j < 0 and re.match(r'<br\b', prev_tag or '', re.I):
+                    out[i] = ' '
+                    done = True
+                    break
+                out[i] = '&nbsp;'
                 i = j
                 continue
             in_word = True

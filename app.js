@@ -74,6 +74,38 @@
   document.fonts?.ready.then(aimPointer);
   addEventListener('load', aimPointer, { once: true });
 
+  /* Luz de borda que acompanha o cursor (só a borda acende, bem suave). */
+  const litCards = [...document.querySelectorAll('.bento-card,.plan,.wall-card,.feature-art,.guarantee,.advantage-card,.platform-shot')];
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    litCards.forEach(card => {
+      card.classList.add('card-light');
+      let frame = null;
+      card.addEventListener('pointermove', e => {
+        if (paused) return;
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+          card.style.setProperty('--my', `${e.clientY - r.top}px`);
+          card.classList.add('is-lit');
+          frame = null;
+        });
+      }, { passive: true });
+      card.addEventListener('pointerleave', () => card.classList.remove('is-lit'));
+    });
+  }
+
+  /* Frame de seleção nos destaques: aparece quando o título entra na tela. */
+  const sels = [...document.querySelectorAll('.sel')];
+  if (sels.length) {
+    if ('IntersectionObserver' in window && !paused) {
+      const io = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('is-on'), 900); io.unobserve(entry.target); }
+      }), { threshold: .6 });
+      sels.forEach(el => io.observe(el));
+    } else sels.forEach(el => el.classList.add('is-on'));
+  }
+
   /* Demonstrações (app, chat): ligam quando entram na tela. */
   if ('IntersectionObserver' in window) {
     const live = new IntersectionObserver(entries => entries.forEach(entry => {

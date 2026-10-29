@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/lenis.css">
-<link rel="stylesheet" href="sales.css?v=20261029a">
+<link rel="stylesheet" href="sales.css?v=20261029b">
 <script>document.documentElement.classList.add('has-js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion-ok');</script>
 </head>
 <body>
@@ -75,7 +75,7 @@
   </div>
   <div class="hero-intro">
     <span class="eyebrow eyebrow-pill" data-reveal data-delay=".05"><i></i>O repertório de quem leva copy a&nbsp;sério</span>
-    <h1 id="hero-title" data-split="words">Grandes campanhas.<br> <em>Ao&nbsp;seu&nbsp;alcance.</em></h1>
+    <h1 id="hero-title" data-split="words">Grandes campanhas.<br> <em class="sel">Ao&nbsp;seu&nbsp;alcance.</em></h1>
     <p class="hero-lead" data-reveal data-delay=".35">Acesse na íntegra <strong>anúncios, páginas e VSLs do Brasil e do&nbsp;mundo.</strong><br> Estude a copy, entenda a estratégia e encontre o ponto de partida da sua&nbsp;próxima&nbsp;campanha.</p>
     <div class="hero-actions" data-reveal data-delay=".45">
       <a class="button pink button-xl" href="#planos"><span class="btn-label">Quero meu acesso&nbsp;agora</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
@@ -129,7 +129,6 @@
         <span class="flow-band-item"><img src="assets/swipe-symbol.png" alt="" width="30" height="30"><span>SWIPE FLOW</span></span>
       </div>
     </div>
-    <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
   </section>
   <section class="flow-band flow-band-light band-cross-b" aria-label="Formatos do acervo">
     <div class="flow-band-track">
@@ -148,7 +147,6 @@
         <span class="flow-band-item"><svg class="ico"><use href="#i-globe"/></svg><span>REFERÊNCIAS GLOBAIS</span></span>
       </div>
     </div>
-    <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
   </section>
 </div>
 
@@ -171,8 +169,8 @@
 <!-- ================= EDITORIAL ================= -->
 <section class="editorial section-shell" id="metodo">
   <div class="editorial-heading">
-    <span class="eyebrow" data-reveal>[ Repertório se constrói na prática ]</span>
-    <h2 data-split="lines">Leia uma boa copy.<br> <span class="muted">Depois, leia de&nbsp;novo.</span><br> <em>Agora,&nbsp;enxergue&nbsp;mais.</em></h2>
+    <span class="eyebrow" data-reveal>Repertório se constrói na prática</span>
+    <h2 data-fill>Leia uma boa copy.<br> <span class="muted">Depois, leia de&nbsp;novo.</span><br> <em>Agora,&nbsp;enxergue&nbsp;mais.</em></h2>
     <div class="editorial-ornament" aria-hidden="true"><span></span><span></span><span></span></div>
   </div>
   <div class="editorial-body">
@@ -186,7 +184,9 @@
 </section>
 
 <!-- ================= ACERVO / PLATAFORMA ================= -->
+<div class="beam" aria-hidden="true"></div>
 <section class="archive-intro section-shell platform" id="acervo">
+  <div class="aurora aurora-archive" aria-hidden="true"><span></span><span></span></div>
   <div class="archive-heading">
     <span class="eyebrow eyebrow-pill" data-reveal><i></i>Seu swipe file, em outro&nbsp;nível</span>
     <h2 data-split="lines">Um acervo para consultar.<br> <em>Um repertório&nbsp;para&nbsp;levar.</em></h2>
@@ -238,19 +238,28 @@
   </div>
 </section>
 
-<!-- ================= MURAL DE CAMPANHAS (scroll horizontal) ================= -->
-<section class="wall" aria-labelledby="wall-title">
-  <div class="wall-pin">
-    <div class="wall-head section-shell">
-      <div>
-        <span class="eyebrow" data-reveal>\\ Formatos do acervo</span>
-        <h2 id="wall-title" data-split="lines">Cada formato,&nbsp;<em>por&nbsp;inteiro.</em></h2>
-      </div>
+<!-- ================= FORMATOS (timeline fixada, blocos trocam com o scroll) ================= -->
+<section class="formats section-shell" id="formatos" aria-labelledby="formats-title">
+  <div class="formats-aurora" aria-hidden="true"><span></span><span></span></div>
+  <div class="formats-pin">
+    <div class="formats-side">
+      <span class="eyebrow" data-reveal>Formatos do acervo</span>
+      <h2 id="formats-title" data-split="lines">Cada formato,&nbsp;<em class="sel">por&nbsp;inteiro.</em></h2>
       <p data-reveal data-delay=".1">Anúncios, VSLs, cartas, páginas e análises. Tudo organizado para você estudar a construção de cada peça, do gancho&nbsp;à&nbsp;oferta.</p>
+      <ol class="formats-steps" aria-label="Formatos">
+        <li class="is-active"><button type="button" data-goto="0"><i>01</i><span>Anúncio</span><small>Tradução PT-BR</small></button></li>
+        <li><button type="button" data-goto="1"><i>02</i><span>VSL</span><small>Transcrição e análise</small></button></li>
+        <li><button type="button" data-goto="2"><i>03</i><span>Carta de vendas</span><small>Texto íntegro</small></button></li>
+        <li><button type="button" data-goto="3"><i>04</i><span>Página de vendas</span><small>Captura completa</small></button></li>
+        <li><button type="button" data-goto="4"><i>05</i><span>Análise</span><small>Ad breakdown</small></button></li>
+        <li><button type="button" data-goto="5"><i>06</i><span>Sua biblioteca</span><small>Pessoal e ilimitada</small></button></li>
+        <span class="formats-line" aria-hidden="true"><i></i></span>
+      </ol>
+      <a class="text-link" href="#planos" data-reveal data-delay=".2">Ver os&nbsp;planos <span><svg class="ico"><use href="#i-arrow"/></svg></span></a>
     </div>
-    <div class="wall-track">
+    <div class="formats-stage">
       <!-- 01 Anúncio -->
-      <article class="wall-card wall-ad">
+      <article class="wall-card glass wall-ad" data-step="0">
         <header class="wall-card-head"><span>01 /</span><b>Anúncio</b><i>Tradução PT-BR</i></header>
         <div class="wall-ad-frame">
           <div class="wall-ad-top"><img src="assets/community-avatar-3.svg" alt="" width="28" height="28"><span><b>Tipgalore</b><small>Patrocinado</small></span></div>
@@ -260,7 +269,7 @@
         </div>
       </article>
       <!-- 02 VSL -->
-      <article class="wall-card wall-vsl">
+      <article class="wall-card glass wall-vsl" data-step="1">
         <header class="wall-card-head"><span>02 /</span><b>VSL</b><i>Transcrição + análise</i></header>
         <div class="wall-player">
           <img src="assets/offers/entretenimento.jpg" alt="" loading="lazy" style="object-position:center 25%">
@@ -271,7 +280,7 @@
         <p class="wall-caption"><b>00:12</b> “Antes de continuar, preciso contar o que aconteceu no&nbsp;último&nbsp;domingo…”</p>
       </article>
       <!-- 03 Carta -->
-      <article class="wall-card wall-letter">
+      <article class="wall-card glass wall-letter" data-step="2">
         <header class="wall-card-head"><span>03 /</span><b>Carta de vendas</b><i>Texto íntegro</i></header>
         <div class="wall-paper">
           <span class="wall-paper-kicker">Para quem já tentou de tudo</span>
@@ -282,7 +291,7 @@
         </div>
       </article>
       <!-- 04 Página -->
-      <article class="wall-card wall-page">
+      <article class="wall-card glass wall-page" data-step="3">
         <header class="wall-card-head"><span>04 /</span><b>Página de vendas</b><i>Captura completa</i></header>
         <div class="wall-browser">
           <div class="wall-browser-bar"><i></i><i></i><i></i><span>derila-ergo.oferta</span></div>
@@ -296,7 +305,7 @@
         </div>
       </article>
       <!-- 05 Análise -->
-      <article class="wall-card wall-analysis">
+      <article class="wall-card glass wall-analysis" data-step="4">
         <header class="wall-card-head"><span>05 /</span><b>Análise</b><i>Ad breakdown</i></header>
         <div class="wall-analysis-top"><img src="assets/offers/alimentos.jpg" alt="" loading="lazy"><span><b>Tip Parents</b><small>O que vai no&nbsp;seu&nbsp;prato?</small></span></div>
         <ul class="wall-layers">
@@ -306,7 +315,7 @@
         </ul>
       </article>
       <!-- 06 Biblioteca -->
-      <article class="wall-card wall-library">
+      <article class="wall-card glass wall-library" data-step="5">
         <header class="wall-card-head"><span>06 /</span><b>Sua biblioteca</b><i>Pessoal e ilimitada</i></header>
         <div class="wall-folders">
           <div class="wall-folder"><svg class="ico"><use href="#i-folder"/></svg><span>Ganchos para testar</span></div>
@@ -319,17 +328,12 @@
         </div>
         <p class="wall-library-note">Encontre. Salve. Volte&nbsp;quando&nbsp;precisar.</p>
       </article>
-      <article class="wall-card wall-end">
-        <span class="eyebrow">Tudo isso no acervo</span>
-        <h3>Comece pela sua&nbsp;próxima&nbsp;<em>referência.</em></h3>
-        <a class="button pink" href="#planos"><span class="btn-label">Ver os&nbsp;planos</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
-      </article>
     </div>
-    <div class="wall-progress" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
 <!-- ================= STORY (pinned) ================= -->
+<div class="beam" aria-hidden="true"></div>
 <section class="story-section section-shell" id="recursos">
   <div class="story-heading">
     <span class="eyebrow eyebrow-pill" data-reveal><i></i>A referência é o&nbsp;começo</span>
@@ -338,9 +342,9 @@
   <div class="story-pin">
     <div class="story-bar">
       <div class="story-nav" aria-label="Explore os recursos">
-        <button class="story-tab active" data-story-step="0" aria-controls="story-panel-0" aria-current="step">Explore o acervo</button>
-        <button class="story-tab" data-story-step="1" aria-controls="story-panel-1">Entenda a estratégia</button>
-        <button class="story-tab" data-story-step="2" aria-controls="story-panel-2">Crie no seu ritmo</button>
+        <button class="story-tab active" data-story-step="0" aria-controls="story-panel-0" aria-current="step"><i>01</i>Explore o acervo</button>
+        <button class="story-tab" data-story-step="1" aria-controls="story-panel-1"><i>02</i>Entenda a estratégia</button>
+        <button class="story-tab" data-story-step="2" aria-controls="story-panel-2"><i>03</i>Crie no seu ritmo</button>
       </div>
       <span class="story-scroll-label">Continue explorando <svg class="ico"><use href="#i-arrow-down"/></svg></span>
     </div>
@@ -349,7 +353,7 @@
 
       <article class="story-panel" id="story-panel-0" aria-labelledby="story-title-0">
         <div class="feature-copy">
-          <span class="eyebrow">[ Referências globais ]</span>
+          <span class="eyebrow">Referências globais</span>
           <h3 id="story-title-0">A próxima ideia pode<br> vir de&nbsp;<em>outro&nbsp;mercado.</em></h3>
           <p>Saia das referências de sempre. Explore campanhas brasileiras e internacionais, em diferentes nichos e formatos, com conteúdos traduzidos para&nbsp;o&nbsp;português.</p>
           <ul class="story-points">
@@ -359,7 +363,7 @@
           </ul>
           <p class="story-takeaway">Mais caminhos para começar. <strong>Mais repertório&nbsp;para&nbsp;escolher.</strong></p>
         </div>
-        <div class="feature-art reference-wall">
+        <div class="feature-art reference-wall glass">
           <div class="reference-label"><span>Do acervo para a sua biblioteca</span><b><svg class="ico"><use href="#i-bookmark"/></svg></b></div>
           <div class="reference-grid">
             <figure class="ref-ad"><div class="ref-media"><img src="assets/offers/alimentos.jpg" alt="" loading="lazy"><b>ANÚNCIO</b></div><figcaption>Anúncio<small>Tip Parents</small></figcaption></figure>
@@ -372,7 +376,7 @@
 
       <article class="story-panel" id="story-panel-1" aria-labelledby="story-title-1">
         <div class="feature-copy">
-          <span class="eyebrow">[ Ad breakdown ]</span>
+          <span class="eyebrow">Ad breakdown</span>
           <h3 id="story-title-1">Não pare na leitura.<br> <em>Entenda&nbsp;a&nbsp;escolha.</em></h3>
           <p>Uma boa campanha tem decisões em cada trecho. As análises ajudam você a identificar o papel do gancho, da história, do argumento e da chamada&nbsp;para&nbsp;ação.</p>
           <ul class="story-points">
@@ -382,7 +386,7 @@
           </ul>
           <p class="story-takeaway">Entenda a lógica. <strong>Escreva com a&nbsp;sua&nbsp;voz.</strong></p>
         </div>
-        <div class="feature-art breakdown-board">
+        <div class="feature-art breakdown-board glass">
           <div class="breakdown-toolbar"><span class="breakdown-dot"></span><span>Anatomia de uma campanha</span><b>SWIPE FLOW</b></div>
           <div class="breakdown-preview">
             <img src="assets/offers/lulutox.jpg" alt="" loading="lazy">
@@ -399,7 +403,7 @@
 
       <article class="story-panel" id="story-panel-2" aria-labelledby="story-title-2">
         <div class="feature-copy">
-          <span class="eyebrow">[ Pesquisa e criação, conectadas ]</span>
+          <span class="eyebrow">Pesquisa e criação, conectadas</span>
           <h3 id="story-title-2">Seu repertório.<br> <em>Dentro do&nbsp;seu&nbsp;fluxo.</em></h3>
           <p>Salve conteúdos com o Spy, organize sua biblioteca e desenvolva ideias com o The Derick. No Ultra, conecte o acervo ao Claude ou ChatGPT&nbsp;via&nbsp;MCP.</p>
           <ul class="story-points">
@@ -409,7 +413,7 @@
           </ul>
           <a class="text-link" href="#planos">Veja os recursos de cada&nbsp;plano <span><svg class="ico"><use href="#i-arrow"/></svg></span></a>
         </div>
-        <div class="feature-art flow-console">
+        <div class="feature-art flow-console glass">
           <div class="console-top"><img src="assets/swipe-symbol.png" alt="" width="36" height="36"><span>Seu espaço de criação</span></div>
           <div class="console-library">
             <div class="console-stack"><img src="assets/offers/pets.jpg" alt="" loading="lazy"><img src="assets/offers/derila.jpg" alt="" loading="lazy" style="object-position:70% center"><img src="assets/offers/casamento.jpg" alt="" loading="lazy"></div>
@@ -442,7 +446,6 @@
       <span class="flow-band-item"><svg class="ico"><use href="#i-compass"/></svg><span>ENCONTRE SEU FLOW</span></span>
     </div>
   </div>
-  <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
 </section>
 
 <!-- ================= VANTAGENS (cards empilhados) ================= -->
@@ -483,14 +486,15 @@
 
 <!-- ================= BENTO: SPY · BIBLIOTECA · THE DERICK · MCP ================= -->
 <section class="studio section-shell" aria-labelledby="studio-title">
+  <div class="aurora aurora-studio" aria-hidden="true"><span></span><span></span></div>
   <div class="studio-heading">
-    <span class="eyebrow" data-reveal>[ Spy · Biblioteca · The Derick · MCP ]</span>
-    <h2 id="studio-title" data-split="lines">Suas referências,<br> <em>do lado&nbsp;da&nbsp;criação.</em></h2>
+    <span class="eyebrow" data-reveal>Spy · Biblioteca · The Derick · MCP</span>
+    <h2 id="studio-title" data-fill>Suas referências,<br> <em>do lado&nbsp;da&nbsp;criação.</em></h2>
     <p data-reveal data-delay=".1">Salve com o Spy, organize na biblioteca e desenvolva ideias com o The Derick. No Ultra, conecte o acervo ao Claude ou ChatGPT&nbsp;via&nbsp;MCP.</p>
   </div>
   <div class="bento">
     <!-- Chat -->
-    <article class="bento-card bento-chat" data-reveal>
+    <article class="bento-card glass bento-chat" data-reveal>
       <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-spark"/></svg></span><span><b>The Derick</b><small>IA para copy, com acesso às peças da Swipe Flow e da&nbsp;sua&nbsp;biblioteca</small></span></div>
       <div class="chat">
         <div class="chat-msg chat-user">
@@ -513,7 +517,7 @@
       <small class="bento-note">Demonstração ilustrativa.</small>
     </article>
     <!-- Spy -->
-    <article class="bento-card bento-spy" data-reveal data-delay=".1">
+    <article class="bento-card glass bento-spy" data-reveal data-delay=".1">
       <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-eye"/></svg></span><span><b>Spy</b><small>Salve páginas, anúncios e conteúdos com&nbsp;um&nbsp;clique</small></span></div>
       <div class="spy-visual" aria-hidden="true">
         <div class="spy-bar"><i></i><i></i><i></i><span>qualquer-pagina.com/oferta</span><em><img src="assets/swipe-symbol.png" alt="" width="18" height="18"></em></div>
@@ -523,7 +527,7 @@
       </div>
     </article>
     <!-- MCP -->
-    <article class="bento-card bento-mcp" data-reveal data-delay=".2">
+    <article class="bento-card glass bento-mcp" data-reveal data-delay=".2">
       <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-link"/></svg></span><span><b>Conexão via MCP</b><small>No Ultra, use o acervo dentro do Claude ou&nbsp;do&nbsp;ChatGPT</small></span></div>
       <div class="mcp-visual" aria-hidden="true">
         <span class="mcp-node mcp-node-a">Claude</span>
@@ -537,10 +541,12 @@
 </section>
 
 <!-- ================= PLANOS ================= -->
+<div class="beam" aria-hidden="true"></div>
 <section class="pricing section-shell" id="planos">
+  <div class="aurora aurora-pricing" aria-hidden="true"><span></span><span></span></div>
   <div class="pricing-heading">
     <span class="eyebrow eyebrow-pill" data-reveal><i></i>Escolha seu&nbsp;acesso</span>
-    <h2 data-split="lines">Seu próximo nível<br>&nbsp;de&nbsp;<em>repertório.</em></h2>
+    <h2 data-split="lines">Seu próximo nível<br> de&nbsp;<em class="sel">repertório.</em></h2>
     <p data-reveal data-delay=".1">Do primeiro swipe a uma rotina completa de pesquisa e&nbsp;criação.<br> Escolha o plano que acompanha o&nbsp;seu&nbsp;momento.</p>
   </div>
   <div class="plans">
@@ -558,7 +564,7 @@
         <li>Spy: salve páginas, anúncios&nbsp;e&nbsp;conteúdos</li>
       </ul>
     </article>
-    <article class="plan plan-pro">
+    <article class="plan plan-pro glass">
       <div class="plan-top"><span>PRO</span><span class="plan-tag">Recomendado</span></div>
       <h3>Mais espaço<br> <em>para&nbsp;criar.</em></h3>
       <p class="plan-fit">Para quem pesquisa com frequência e quer criar com o&nbsp;The&nbsp;Derick.</p>
@@ -572,7 +578,7 @@
         <li>The Derick: IA para copy com acesso às peças da Swipe Flow e da&nbsp;sua&nbsp;biblioteca</li>
       </ul>
     </article>
-    <article class="plan ultra">
+    <article class="plan ultra glass">
       <div class="plan-top"><span>ULTRA</span><span class="plan-tag">Experiência completa</span></div>
       <h3>Seu processo.<br> <em>Em&nbsp;outra&nbsp;escala.</em></h3>
       <p class="plan-fit">Para conectar o acervo, aprofundar o aprendizado e ampliar&nbsp;sua&nbsp;rotina.</p>
@@ -593,9 +599,9 @@
   </div>
   <p class="plan-note" data-reveal><svg class="ico"><use href="#i-lock"/></svg>Continue na plataforma Swipe Flow para concluir seu cadastro&nbsp;e&nbsp;assinatura.</p>
 
-  <div class="guarantee guarantee-medallion" role="group" aria-labelledby="guarantee-title" data-reveal>
+  <div class="guarantee guarantee-medallion glass" role="group" aria-labelledby="guarantee-title" data-reveal>
     <div class="guarantee-copy">
-      <span class="guarantee-eyebrow">[ Garantia Swipe Flow ]</span>
+      <span class="guarantee-eyebrow">Garantia Swipe Flow</span>
       <h3 id="guarantee-title">Entre. Explore.<br><em>Decida&nbsp;com&nbsp;calma.</em></h3>
       <p>Acesse a plataforma e conheça o acervo no seu ritmo. Se não fizer sentido para você, solicite o <strong>reembolso em até 7&nbsp;dias</strong> pelos canais de atendimento da&nbsp;Swipe&nbsp;Flow.</p>
       <span class="guarantee-assurance"><svg class="ico"><use href="#i-check"/></svg>Tempo para conhecer. Liberdade para&nbsp;decidir.</span>
@@ -608,6 +614,7 @@
 </section>
 
 <!-- ================= FAQ ================= -->
+<div class="beam" aria-hidden="true"></div>
 <section class="faq section-shell">
   <div class="faq-heading">
     <span class="eyebrow eyebrow-pill" data-reveal><i></i>Antes do seu primeiro&nbsp;swipe</span>
@@ -630,8 +637,8 @@
 <section class="final-cta section-shell">
   <div class="final-backdrop" aria-hidden="true"><span class="hero-grid"></span><span class="hero-spot hero-spot-c"></span></div>
   <div class="final-inner">
-    <span class="final-symbol" data-reveal><img src="assets/swipe-symbol.png" alt="" width="64" height="64"></span>
-    <span class="eyebrow" data-reveal data-delay=".05">[ A próxima ideia está mais perto ]</span>
+    <span class="final-symbol" data-reveal><span class="orbit" aria-hidden="true"><i></i></span><img src="assets/swipe-symbol.png" alt="" width="64" height="64"></span>
+    <span class="eyebrow" data-reveal data-delay=".05">A próxima ideia está mais perto</span>
     <h2 data-split="words">Seu repertório<br> merece&nbsp;<em>esse&nbsp;flow.</em></h2>
     <p data-reveal data-delay=".2">Grandes campanhas para&nbsp;estudar.<br> Novas possibilidades&nbsp;para&nbsp;criar.</p>
     <div class="hero-actions" data-reveal data-delay=".3">
@@ -665,11 +672,11 @@
 <script src="vendor/ScrollTrigger.min.js" defer=""></script>
 <script src="vendor/SplitText.min.js" defer=""></script>
 <script src="vendor/lenis.min.js" defer=""></script>
-<script src="app.js?v=20261029a" defer=""></script>
-<script src="menu-highlight.js?v=20261029a" defer=""></script>
-<script src="guarantee-seal.js?v=20261029a" defer=""></script>
-<script src="scroll-experience.js?v=20261029a" defer=""></script>
-<script src="motion.js?v=20261029a" defer=""></script>
-<script src="flow-bands.js?v=20261029a" defer=""></script>
+<script src="app.js?v=20261029b" defer=""></script>
+<script src="menu-highlight.js?v=20261029b" defer=""></script>
+<script src="guarantee-seal.js?v=20261029b" defer=""></script>
+<script src="scroll-experience.js?v=20261029b" defer=""></script>
+<script src="motion.js?v=20261029b" defer=""></script>
+<script src="flow-bands.js?v=20261029b" defer=""></script>
 </body>
 </html>

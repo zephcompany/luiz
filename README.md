@@ -21,12 +21,12 @@ Não renomeie o `index.html` nem altere a estrutura das pastas. Inclua o arquivo
 
 - `index.html`: página principal.
 - `sales.css`: todos os estilos (tokens em `:root`, tipografia Manrope + Instrument Serif, botões, cards, faixas, mockups animados e responsivo).
-- `app.js`: header, barra de progresso, FAQ animado, estados "ao vivo" das demonstrações.
+- `app.js`: header, barra de progresso, FAQ animado, luz de borda que acompanha o cursor nos cards, frames de seleção nos destaques, estados "ao vivo" das demonstrações.
 - `scroll-experience.js`: galeria em arco da hero, Lenis (rolagem suave), seção fixada dos recursos e entrada dos planos.
-- `motion.js`: preloader + entrada da hero, títulos revelados por linha/palavra (SplitText), reveals por scroll, mural horizontal fixado, cards empilhados e wordmark.
+- `motion.js`: preloader + entrada da hero, títulos revelados por linha/palavra (SplitText), títulos que se preenchem com o scroll, reveals, timeline fixada dos formatos (blocos trocam conforme o scroll), cards empilhados e wordmark.
 - `menu-highlight.js`: destaque deslizante do menu.
 - `guarantee-seal.js`: movimento do selo de garantia.
-- `flow-bands.js`: faixas horizontais que reagem à velocidade do scroll, com controle de pausa.
+- `flow-bands.js`: faixas horizontais que reagem à velocidade do scroll (param em movimento reduzido).
 - `assets/`: imagens, selo, avatares e favicon usados no site.
 - `vendor/`: GSAP, ScrollTrigger, SplitText, Lenis e avisos de origem/licença.
 - `tools/widows.py`: utilitário opcional (`python3 tools/widows.py index.html`) que junta as últimas três palavras de cada bloco de texto com `&nbsp;` para nunca deixar 1 ou 2 palavras sozinhas na última linha. Rode depois de editar textos.

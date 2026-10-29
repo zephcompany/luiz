@@ -137,6 +137,7 @@
     context = null;
     lenis?.destroy();
     lenis = null;
+    window.__lenis = null;
     restorePanels();
     document.documentElement.classList.remove('motion-enhanced');
     arcIdle = 0;
@@ -161,6 +162,7 @@
         stopInertiaOnNavigate: true
       });
       lenis.on('scroll', ScrollTrigger.update);
+      window.__lenis = lenis;
     }
     gsap.ticker.lagSmoothing(0);
     frameHandler = (time, deltaTime) => {

@@ -35,8 +35,9 @@
   function splitHeading(el) {
     const mode = el.dataset.split === 'words' ? 'words' : 'lines';
     const inHero = heroIntro && heroIntro.contains(el);
+    const hadSel = Boolean(el.querySelector('em.sel'));
     const split = SplitText.create(el, {
-      type: mode === 'words' ? 'lines,words' : 'lines',
+      type: mode === 'words' ? 'words' : 'lines',
       mask: mode,
       autoSplit: true,
       /* Mantém os &nbsp; que evitam viúvas: só o espaço comum separa palavras. */
@@ -47,6 +48,8 @@
       wordsClass: 'split-word',
       onSplit(self) {
         el.classList.add('is-split');
+        /* O SplitText recria o <em>; devolve o frame de seleção a ele. */
+        if (hadSel) el.querySelectorAll('em').forEach(e => e.classList.add('sel'));
         const targets = mode === 'words' ? self.words : self.lines;
         const vars = {
           yPercent: 115, duration: mode === 'words' ? 1.1 : 1.05, ease: 'power4.out',
@@ -99,35 +102,85 @@
     tl.to(heroReveals, { opacity: 1, y: 0, duration: 1, stagger: .09, clearProps: 'all', onComplete: () => heroReveals.forEach(el => el.classList.add('is-in')) }, pre ? '-=.3' : '+=.2');
     tl.from(qa('.arc-cover'), { yPercent: 40, opacity: 0, duration: 1.1, ease: 'power3.out', stagger: { each: .045, from: 'center' }, clearProps: 'transform,opacity' }, '<-.2');
     tl.from(qa('.hero-chip'), { opacity: 0, duration: .8, stagger: .15 }, '-=.5');
+    tl.add(() => qa('.hero .sel').forEach(e => e.classList.add('is-on')), '-=.9');
     return tl;
   }
 
-  /* ---------- mural horizontal ---------- */
-  function buildWall() {
-    const wall = q('.wall');
-    const track = q('.wall-track');
-    const bar = q('.wall-progress span');
-    if (!wall || !track) return;
-    const cards = qa('.wall-card', track);
-    const distance = () => {
-      const last = cards[cards.length - 1];
-      const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-      const end = last.offsetLeft + last.offsetWidth + padLeft;
-      return Math.max(0, end - innerWidth);
+  /* ---------- formatos: timeline fixada, blocos trocam com o scroll ---------- */
+  let formatsTimeline = null;
+  function buildFormats() {
+    const section = q('.formats');
+    const pin = q('.formats-pin');
+    const cards = qa('.formats-stage .wall-card');
+    const steps = qa('.formats-steps li');
+    const line = q('.formats-line i');
+    if (!section || !pin || cards.length < 2) return;
+    section.classList.add('is-pinned');
+    const n = cards.length;
+    const setStep = i => {
+      steps.forEach((li, k) => li.classList.toggle('is-active', k === i));
+      cards.forEach((c, k) => c.setAttribute('aria-hidden', String(k !== i)));
     };
-    gsap.to(track, {
-      x: () => -distance(), ease: 'none',
+    gsap.set(cards, { autoAlpha: 0, y: 70, scale: .96 });
+    gsap.set(cards[0], { autoAlpha: 1, y: 0, scale: 1 });
+    setStep(0);
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
       scrollTrigger: {
-        id: 'wall', trigger: wall, start: 'top top', end: () => `+=${Math.round(distance() * 1.05)}`,
-        pin: true, pinSpacing: true, scrub: .9, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 2,
-        onUpdate(self) { if (bar) bar.style.width = `${self.progress * 100}%`; }
+        id: 'formats', trigger: section, start: 'top top', end: () => `+=${Math.round(innerHeight * (n - 1) * .75)}`,
+        pin: true, pinSpacing: true, scrub: .8, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 2,
+        onUpdate(self) {
+          const p = self.progress;
+          const i = Math.min(n - 1, Math.round(p * (n - 1)));
+          if (!steps[i].classList.contains('is-active')) setStep(i);
+          if (line) line.style.height = `${p * 100}%`;
+        }
       }
     });
     cards.forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0, x: 40, duration: .8, ease: 'power3.out', delay: i * .06, clearProps: 'transform',
-        scrollTrigger: { trigger: wall, start: 'top 60%', once: true }
+      tl.addLabel(`step-${i}`, i);
+      if (i === n - 1) { tl.to({}, { duration: .5 }, i); return; }
+      tl.to(card, { autoAlpha: 0, y: -60, scale: .97, duration: .45 }, i + .35);
+      tl.to(cards[i + 1], { autoAlpha: 1, y: 0, scale: 1, duration: .6, immediateRender: false }, i + .5);
+    });
+    formatsTimeline = tl;
+    return () => {
+      section.classList.remove('is-pinned');
+      cards.forEach(c => { c.removeAttribute('aria-hidden'); gsap.set(c, { clearProps: 'all' }); });
+      steps.forEach((li, k) => li.classList.toggle('is-active', k === 0));
+      formatsTimeline = null;
+    };
+  }
+  qa('.formats-steps button').forEach(btn => btn.addEventListener('click', () => {
+    const i = parseInt(btn.dataset.goto, 10) || 0;
+    const tl = formatsTimeline;
+    if (tl?.scrollTrigger) {
+      const st = tl.scrollTrigger;
+      const target = st.start + (st.end - st.start) * (i / (tl.duration() || 1)) + 2;
+      if (window.__lenis) window.__lenis.scrollTo(target, { duration: 1 });
+      else scrollTo({ top: target, behavior: 'smooth' });
+    } else {
+      const card = qa('.formats-stage .wall-card')[i];
+      card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }));
+
+  /* ---------- títulos que se preenchem com o scroll ---------- */
+  function buildFills() {
+    qa('[data-fill]').forEach(el => {
+      if (!hasSplit) { el.classList.add('is-split'); return; }
+      const split = SplitText.create(el, {
+        type: 'words', wordsClass: 'fill-word', autoSplit: true, aria: 'auto', reduceWhiteSpace: false,
+        prepareText: text => text.replace(/[ \t\n\r]+/g, ' '),
+        onSplit(self) {
+          el.classList.add('is-split');
+          return gsap.fromTo(self.words, { opacity: .16 }, {
+            opacity: 1, ease: 'none', stagger: .06,
+            scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 28%', scrub: .6 }
+          });
+        }
       });
+      splits.push(split);
     });
   }
 
@@ -173,9 +226,10 @@
       if (hasSplit) qa('[data-split]').forEach(splitHeading);
       else qa('[data-split]').forEach(el => { el.classList.add('is-split'); gsap.from(el, { opacity: 0, y: 30, duration: 1, scrollTrigger: { trigger: el, start: 'top 86%', once: true } }); });
       buildReveals();
+      buildFills();
       buildParallax();
       media = gsap.matchMedia();
-      media.add('(min-width: 1000px)', () => { buildWall(); buildStack(); });
+      media.add('(min-width: 1000px)', () => { const undoFormats = buildFormats(); buildStack(); return () => { undoFormats?.(); }; });
     });
     ScrollTrigger.refresh();
   }
