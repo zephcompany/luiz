@@ -184,16 +184,13 @@
         y: -40, opacity: .2, ease: 'none',
         scrollTrigger: { trigger: hero, start: '35% top', end: 'bottom top', scrub: .8 }
       });
-      // Start these reveals only when their actual location enters the viewport.
-      document.querySelectorAll('.reveal').forEach(element => {
-        gsap.fromTo(element, { y: 16, opacity: 0 }, {
-          y: 0, opacity: 1, duration: .6, ease: 'power2.out',
-          scrollTrigger: { trigger: element, start: 'top 91%', toggleActions: 'play none none none', once: true }
-        });
+      gsap.to('.hero-chip', {
+        y: -90, ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: .6 }
       });
-      gsap.fromTo('.platform-shot', { rotateX: 9, scale: .94 }, {
-        rotateX: 0, scale: 1, ease: 'none',
-        scrollTrigger: { trigger: '.platform', start: 'top 85%', end: 'center center', scrub: 1 }
+      gsap.fromTo('.platform-shot', { rotateX: 10, scale: .93, opacity: .35, transformPerspective: 1400 }, {
+        rotateX: 0, scale: 1, opacity: 1, ease: 'none',
+        scrollTrigger: { trigger: '.platform-shot', start: 'top 92%', end: 'top 35%', scrub: .8 }
       });
 
     });
@@ -204,7 +201,9 @@
       plans.classList.add('pricing-cards-motion');
       const entrance = gsap.timeline({ scrollTrigger: {
         id: 'pricing-entry', trigger: plans, start: 'top 92%', end: 'top 42%',
-        scrub: .55, invalidateOnRefresh: true
+        scrub: .55, invalidateOnRefresh: true,
+        // Após a entrada, libera o transform inline para o hover em CSS funcionar.
+        onLeave: () => gsap.set(priceCards, { clearProps: 'transform,translate,rotate,scale' })
       }});
       priceCards.forEach((card, index) => {
         entrance.fromTo(card, {

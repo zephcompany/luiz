@@ -1,0 +1,199 @@
+/* Coreografia de scroll: preloader + entrada da hero, títulos divididos em
+   linhas/palavras, reveals, mural horizontal, cards empilhados e wordmark.
+   Depende de GSAP + ScrollTrigger + SplitText (vendor/). Sem eles, ou com
+   movimento reduzido, tudo fica visível e a página rola normalmente. */
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const hasGSAP = Boolean(window.gsap && window.ScrollTrigger);
+  const hasSplit = Boolean(window.SplitText);
+  const q = (s, c = document) => c.querySelector(s);
+  const qa = (s, c = document) => [...c.querySelectorAll(s)];
+
+  function showEverything() {
+    root.classList.remove('motion-ok');
+    qa('[data-split]').forEach(el => el.classList.add('is-split'));
+    qa('[data-reveal],[data-reveal-group]>*').forEach(el => { el.style.opacity = ''; el.style.transform = ''; });
+    const pre = q('.preloader');
+    if (pre) pre.remove();
+  }
+
+  if (!hasGSAP) { showEverything(); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  if (hasSplit) gsap.registerPlugin(SplitText);
+
+  let ctx = null;
+  let media = null;
+  let splits = [];
+  let introDone = false;
+  const heroIntro = q('.hero-intro');
+
+  const isPaused = () => reduced.matches || document.body.classList.contains('paused');
+
+  /* ---------- títulos: máscara por linha ou palavra ---------- */
+  function splitHeading(el) {
+    const mode = el.dataset.split === 'words' ? 'words' : 'lines';
+    const inHero = heroIntro && heroIntro.contains(el);
+    const split = SplitText.create(el, {
+      type: mode === 'words' ? 'lines,words' : 'lines',
+      mask: mode,
+      autoSplit: true,
+      /* Mantém os &nbsp; que evitam viúvas: só o espaço comum separa palavras. */
+      reduceWhiteSpace: false,
+      prepareText: text => text.replace(/[ \t\n\r]+/g, ' '),
+      aria: 'auto',
+      linesClass: 'split-line',
+      wordsClass: 'split-word',
+      onSplit(self) {
+        el.classList.add('is-split');
+        const targets = mode === 'words' ? self.words : self.lines;
+        const vars = {
+          yPercent: 115, duration: mode === 'words' ? 1.1 : 1.05, ease: 'power4.out',
+          stagger: mode === 'words' ? .05 : .1
+        };
+        if (inHero) {
+          const tween = gsap.from(targets, { ...vars, paused: !introDone });
+          el._heroTween = tween;
+          return tween;
+        }
+        return gsap.from(targets, { ...vars, scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+      }
+    });
+    splits.push(split);
+  }
+
+  /* ---------- reveals simples ---------- */
+  function buildReveals() {
+    qa('[data-reveal]').forEach(el => {
+      if (heroIntro && heroIntro.contains(el)) return;
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: parseFloat(el.dataset.delay) || 0,
+        clearProps: 'all', onComplete: () => el.classList.add('is-in'),
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+      });
+    });
+    qa('[data-reveal-group]').forEach(group => {
+      gsap.to([...group.children], {
+        opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .07, clearProps: 'all',
+        onComplete: () => group.classList.add('is-in'),
+        scrollTrigger: { trigger: group, start: 'top 88%', once: true }
+      });
+    });
+  }
+
+  /* ---------- entrada: preloader → hero ---------- */
+  function playIntro() {
+    const pre = q('.preloader');
+    const heroReveals = heroIntro ? qa('[data-reveal]', heroIntro) : [];
+    const h1 = q('.hero h1');
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, onComplete: () => { introDone = true; } });
+    if (pre) {
+      tl.to(pre.querySelector('.preloader-line i'), { scaleX: 1, duration: .75, ease: 'power2.inOut' })
+        .to(pre, { yPercent: -100, duration: .85, ease: 'power4.inOut' }, '+=.1')
+        .set(pre, { display: 'none' });
+    }
+    const t0 = pre ? '-=.5' : 0;
+    if (h1 && h1._heroTween) tl.add(() => { h1._heroTween.play(); }, t0);
+    else if (h1) tl.from(h1, { opacity: 0, y: 30, duration: 1 }, t0);
+    tl.to(heroReveals, { opacity: 1, y: 0, duration: 1, stagger: .09, clearProps: 'all', onComplete: () => heroReveals.forEach(el => el.classList.add('is-in')) }, pre ? '-=.3' : '+=.2');
+    tl.from(qa('.arc-cover'), { yPercent: 40, opacity: 0, duration: 1.1, ease: 'power3.out', stagger: { each: .045, from: 'center' }, clearProps: 'transform,opacity' }, '<-.2');
+    tl.from(qa('.hero-chip'), { opacity: 0, duration: .8, stagger: .15 }, '-=.5');
+    return tl;
+  }
+
+  /* ---------- mural horizontal ---------- */
+  function buildWall() {
+    const wall = q('.wall');
+    const track = q('.wall-track');
+    const bar = q('.wall-progress span');
+    if (!wall || !track) return;
+    const cards = qa('.wall-card', track);
+    const distance = () => {
+      const last = cards[cards.length - 1];
+      const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+      const end = last.offsetLeft + last.offsetWidth + padLeft;
+      return Math.max(0, end - innerWidth);
+    };
+    gsap.to(track, {
+      x: () => -distance(), ease: 'none',
+      scrollTrigger: {
+        id: 'wall', trigger: wall, start: 'top top', end: () => `+=${Math.round(distance() * 1.05)}`,
+        pin: true, pinSpacing: true, scrub: .9, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 2,
+        onUpdate(self) { if (bar) bar.style.width = `${self.progress * 100}%`; }
+      }
+    });
+    cards.forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0, x: 40, duration: .8, ease: 'power3.out', delay: i * .06, clearProps: 'transform',
+        scrollTrigger: { trigger: wall, start: 'top 60%', once: true }
+      });
+    });
+  }
+
+  /* ---------- cards empilhados ---------- */
+  function buildStack() {
+    const cards = qa('.advantage-card');
+    cards.forEach((card, i) => {
+      card.style.setProperty('--i', i);
+      const next = cards[i + 1];
+      if (!next) return;
+      gsap.to(card, {
+        scale: 1 - (cards.length - 1 - i) * .035, ease: 'none',
+        scrollTrigger: { trigger: next, start: 'top bottom', end: () => `top ${110 + (i + 1) * 26}px`, scrub: true }
+      });
+    });
+    cards.forEach((card, i) => gsap.from(card, {
+      opacity: 0, y: 50, duration: .9, ease: 'power3.out',
+      scrollTrigger: { trigger: card, start: 'top 92%', once: true }
+    }));
+  }
+
+  /* ---------- wordmark e paralaxes leves ---------- */
+  function buildParallax() {
+    const mark = q('[data-wordmark]');
+    if (mark) gsap.fromTo(mark, { xPercent: 4 }, { xPercent: -14, ease: 'none', scrollTrigger: { trigger: '.final-cta', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+    const grid = q('.hero-grid');
+    if (grid) gsap.to(grid, { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.hero-arc', start: 'top top', end: 'bottom top', scrub: true } });
+  }
+
+  /* ---------- ciclo de vida ---------- */
+  function destroy() {
+    media?.revert(); media = null;
+    ctx?.revert(); ctx = null;
+    splits.forEach(s => s.revert()); splits = [];
+    qa('.advantage-card').forEach(c => c.style.removeProperty('--i'));
+  }
+
+  function build() {
+    destroy();
+    if (isPaused()) { showEverything(); return; }
+    root.classList.add('motion-ok');
+    ctx = gsap.context(() => {
+      if (hasSplit) qa('[data-split]').forEach(splitHeading);
+      else qa('[data-split]').forEach(el => { el.classList.add('is-split'); gsap.from(el, { opacity: 0, y: 30, duration: 1, scrollTrigger: { trigger: el, start: 'top 86%', once: true } }); });
+      buildReveals();
+      buildParallax();
+      media = gsap.matchMedia();
+      media.add('(min-width: 1000px)', () => { buildWall(); buildStack(); });
+    });
+    ScrollTrigger.refresh();
+  }
+
+  const ready = Promise.all([document.fonts?.ready || Promise.resolve(), new Promise(r => addEventListener('load', r, { once: true }))]);
+  const timeout = new Promise(r => setTimeout(r, 1800));
+  Promise.race([ready, timeout]).then(() => {
+    build();
+    if (isPaused()) return;
+    playIntro();
+    /* Garante o ScrollTrigger alinhado após imagens carregarem. */
+    setTimeout(() => ScrollTrigger.refresh(), 1200);
+  });
+
+  document.addEventListener('swipe:motion', () => {
+    if (isPaused()) { destroy(); showEverything(); }
+    else if (introDone || !q('.preloader')) build();
+  });
+  let resizeTimer;
+  addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 200); }, { passive: true });
+})();

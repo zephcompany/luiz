@@ -20,15 +20,16 @@ Não renomeie o `index.html` nem altere a estrutura das pastas. Inclua o arquivo
 ## Estrutura
 
 - `index.html`: página principal.
-- `sales.css`: todos os estilos usados na página.
-- `app.js`: interações gerais.
-- `scroll-experience.js`: galeria da hero, rolagem e entrada dos planos.
-- `title-reveal.js`: animação dos títulos.
+- `sales.css`: todos os estilos (tokens em `:root`, tipografia Manrope + Instrument Serif, botões, cards, faixas, mockups animados e responsivo).
+- `app.js`: header, barra de progresso, FAQ animado, estados "ao vivo" das demonstrações.
+- `scroll-experience.js`: galeria em arco da hero, Lenis (rolagem suave), seção fixada dos recursos e entrada dos planos.
+- `motion.js`: preloader + entrada da hero, títulos revelados por linha/palavra (SplitText), reveals por scroll, mural horizontal fixado, cards empilhados e wordmark.
 - `menu-highlight.js`: destaque deslizante do menu.
 - `guarantee-seal.js`: movimento do selo de garantia.
-- `flow-bands.js`: faixas horizontais e controles de movimento.
+- `flow-bands.js`: faixas horizontais que reagem à velocidade do scroll, com controle de pausa.
 - `assets/`: imagens, selo, avatares e favicon usados no site.
 - `vendor/`: GSAP, ScrollTrigger, SplitText, Lenis e avisos de origem/licença.
+- `tools/widows.py`: utilitário opcional (`python3 tools/widows.py index.html`) que junta as últimas três palavras de cada bloco de texto com `&nbsp;` para nunca deixar 1 ou 2 palavras sozinhas na última linha. Rode depois de editar textos.
 - `.nojekyll`: publicação dos arquivos estáticos diretamente.
 
 ## Atualizações

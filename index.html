@@ -1,17 +1,675 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ff0066"><title>Swipe Flow: Sua próxima grande ideia começa aqui.</title><meta name="description" content="Anúncios, VSLs e páginas de vendas do Brasil e do mundo. Explore referências, entenda estratégias e coloque suas ideias em movimento com a Swipe Flow."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="vendor/lenis.css"><link rel="stylesheet" href="sales.css"></head><body><a class="skip" href="#conteudo">Pular para o conteúdo</a><header><a class="brand" href="#" aria-label="Swipe Flow, início"><img src="assets/swipe-symbol.png" alt="" width="40" height="40"><span>swipe flow<span class="brand-dot">®</span></span></a><nav class="flow-menu" aria-label="Navegação principal"><a href="#acervo">O acervo</a><a href="#metodo">Por que Swipe Flow</a><a href="#planos">Planos</a></nav><a class="header-cta" href="#planos"><span class="btn-label">Entrar no flow</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a></header>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<title>Swipe Flow: Sua próxima grande ideia começa aqui.</title>
+<meta name="description" content="Anúncios, VSLs e páginas de vendas do Brasil e do mundo. Explore referências, entenda estratégias e coloque suas ideias em movimento com a Swipe Flow.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/lenis.css">
+<link rel="stylesheet" href="sales.css">
+<script>document.documentElement.classList.add('has-js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion-ok');</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Ícones de traço fino (sprite) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3-10 5 10 5 10-5-10-5zM2 13l10 5 10-5M2 17l10 5 10-5"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4Z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 8 6 4-6 4Z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h5M10 16h5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 1 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-translate" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m3 0c-1.2 4.6-4.1 8.1-8 10m3-6c1 2.5 3 4.5 6 6M13 21l4-10 4 10m-7-3h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m5 3 14 8-6 2-3 6z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><circle cx="17" cy="9" r="3"/><path d="M17 14c3 0 5 2 5 5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 3v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="m4 20 4-1L19 8l-3-3L5 16zM14 7l3 3"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+  <symbol id="i-play-solid" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" aria-label="Swipe Flow, início"><img src="assets/swipe-symbol.png" alt="" width="40" height="40"><span>swipe flow<span class="brand-dot">®</span></span></a>
+    <nav class="flow-menu" aria-label="Navegação principal">
+      <a href="#acervo">O acervo</a>
+      <a href="#metodo">Por que Swipe Flow</a>
+      <a href="#planos">Planos</a>
+    </nav>
+    <a class="header-cta" href="#planos"><span class="btn-label">Entrar no&nbsp;flow</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+  </div>
+</header>
+
 <main id="conteudo">
-<section class="hero hero-arc" aria-labelledby="hero-title"><div class="hero-intro"><span class="eyebrow">O REPERTÓRIO DE QUEM LEVA COPY A SÉRIO</span><h1 id="hero-title">Grandes campanhas.<br> <em>Ao seu alcance.</em></h1><p>Acesse na íntegra <strong>anúncios, páginas e VSLs do Brasil e do mundo.</strong><br> Estude a copy, entenda a estratégia e encontre o ponto de partida da sua próxima campanha.</p><a class="button pink" href="#planos"><span class="btn-label">Quero meu acesso agora</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a><div class="hero-community"><div class="community-avatars" aria-hidden="true"><img src="assets/community-avatar-1.svg" width="42" height="42" alt=""><img src="assets/community-avatar-2.svg" width="42" height="42" alt=""><img src="assets/community-avatar-3.svg" width="42" height="42" alt=""><img src="assets/community-avatar-4.svg" width="42" height="42" alt=""></div><div class="community-caption"><span class="community-label">COPY. CRIAÇÃO. CONEXÃO.</span><span class="community-message">Para quem vive de <strong>copy e criação.</strong></span></div></div><span class="hero-reassurance">Acervo completo · Traduções em português · Análises exclusivas</span></div><div class="arc-gallery" role="img" aria-label="Galeria em perspectiva com onze campanhas diferentes do acervo Swipe Flow"><div class="arc-stage"><article class="arc-card arc-offer" style="--arc-x:-79.0vw;--arc-angle:55deg;--arc-scale:2.875;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/montanha.jpg" alt="" width="800" height="600" style="object-position:40% center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Uma casa na montanha</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:-56.00000000000001vw;--arc-angle:44deg;--arc-scale:2.2;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/halogrow.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Cuidados com o cabelo</span><h3>Halogrow</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:-37.8vw;--arc-angle:33deg;--arc-scale:1.6749999999999998;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/alimentos.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tip Parents</span><h3>O que vai no seu prato?</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:-23.2vw;--arc-angle:22deg;--arc-scale:1.3;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/derila.jpg" alt="" width="800" height="600" style="object-position:70% center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Conforto ao dormir</span><h3>Derila Ergo</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:-11.0vw;--arc-angle:11deg;--arc-scale:1.075;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/entretenimento.jpg" alt="" width="800" height="600" style="object-position:center 25%" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Entretenimento</span><h3>Helen Ganzarolli</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:0.0vw;--arc-angle:0deg;--arc-scale:1.0;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/lulutox.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Bem estar</span><h3>Lulutox</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:11.0vw;--arc-angle:-11deg;--arc-scale:1.075;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/compras.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Achados de segunda mão</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:23.2vw;--arc-angle:-22deg;--arc-scale:1.3;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/historia.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Learn It Wise</span><h3>Uma descoberta inesperada</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:37.8vw;--arc-angle:-33deg;--arc-scale:1.6749999999999998;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/casamento.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Daily Sport X</span><h3>Um casamento. Uma surpresa.</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:56.00000000000001vw;--arc-angle:-44deg;--arc-scale:2.2;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/pets.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Um resgate surpreendente</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article><article class="arc-card arc-offer" style="--arc-x:79.0vw;--arc-angle:-55deg;--arc-scale:2.875;--arc-y:0px" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/rotina.jpg" alt="" width="800" height="600" style="object-position:center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Daily Life Insider</span><h3>Uma nova rotina</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article></div></div></section>
-<section class="value-strip" aria-label="O que você encontra"><div><span class="strip-icon"><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span><p><strong>Campanhas por inteiro.</strong><span>Do primeiro gancho à oferta.</span></p></div><div><span class="strip-icon">文</span><p><strong>Conhecimento sem fronteiras.</strong><span>Referências traduzidas para o português.</span></p></div><div><span class="strip-icon">⌕</span><p><strong>Um olhar além da copy.</strong><span>Análises para entender cada escolha.</span></p></div></section>
-<section class="editorial section-shell" id="metodo"><div class="editorial-heading reveal"><span class="eyebrow">REPERTÓRIO SE CONSTRÓI NA PRÁTICA</span><h2>Leia uma boa copy.<br> <span class="muted">Depois, leia de novo.</span><br> <em>Agora, enxergue mais.</em></h2></div><div class="editorial-body reveal"><p class="lead">Uma das melhores formas de aprender copy é estudar, todos os dias, campanhas que já passaram pelo mercado.</p><p>O gancho que faz parar. A história que sustenta a atenção. O argumento que apresenta uma nova possibilidade. A oferta que transforma interesse em decisão.</p><p>Quando você observa essas escolhas de perto, começa a reconhecer padrões. E ganha mais recursos para escrever com intenção.</p><p><strong>A Swipe Flow reúne as referências e o contexto.</strong> Você traz o olhar, o seu público e a próxima ideia.</p><a class="text-link" href="#acervo">Conheça o que está dentro do acervo <span>↓</span></a></div><div class="editorial-note"><span>MENOS ABAS ABERTAS.</span><span>MAIS IDEIAS EM MOVIMENTO.</span></div></section>
-<section class="flow-band flow-band-pink" aria-label="Pesquisa e criação"><div class="flow-band-track"><div class="flow-band-group"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18"></path></svg><span>PESQUISE COM INTENÇÃO</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>CRIE COM REPERTÓRIO</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>ENCONTRE SEU FLOW</span></span></div><div class="flow-band-group" aria-hidden="true"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18"></path></svg><span>PESQUISE COM INTENÇÃO</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>CRIE COM REPERTÓRIO</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>ENCONTRE SEU FLOW</span></span></div></div><button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button></section><section class="archive-intro section-shell platform" id="acervo"><div class="archive-heading reveal"><span class="eyebrow">SEU SWIPE FILE, EM OUTRO NÍVEL</span><h2 data-title-reveal="brand">Um acervo para consultar.<br> <em>Um repertório para levar.</em></h2><p>Cartas de vendas, anúncios, artigos, páginas e vídeos. Referências organizadas para você encontrar caminhos nos mais variados nichos, estudar grandes campanhas e voltar ao trabalho com novas ideias.</p></div><div class="image-placeholder platform-shot platform-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><div class="archive-foot"><p><strong>Encontre. Salve. Volte quando precisar.</strong><br> Suas melhores referências, reunidas em uma biblioteca pessoal.</p><span>ANÚNCIOS / VSLs / CARTAS / PÁGINAS</span></div></section>
-<div class="sales-context sales-context-placeholder reveal"><div class="image-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div></div><section class="story-section section-shell" id="recursos"><div class="story-heading reveal"><span class="eyebrow">A REFERÊNCIA É O COMEÇO</span><h2>Entre na campanha.<br> <em>Saia com mais contexto.</em></h2></div><div class="story-pin"><div class="story-bar"><div class="story-nav" aria-label="Explore os recursos"><button class="story-tab active" data-story-step="0" aria-controls="story-panel-0" aria-current="step">Explore o acervo</button><button class="story-tab" data-story-step="1" aria-controls="story-panel-1">Entenda a estratégia</button><button class="story-tab" data-story-step="2" aria-controls="story-panel-2">Crie no seu ritmo</button></div><span class="story-scroll-label">CONTINUE EXPLORANDO ↓</span></div><div class="story-meter" aria-hidden="true"><span></span></div><div class="story-stage">
-<article class="story-panel" id="story-panel-0" aria-labelledby="story-title-0"><div class="feature-copy"><span class="eyebrow">REFERÊNCIAS GLOBAIS</span><h3 id="story-title-0">A próxima ideia pode<br> vir de <em>outro mercado.</em></h3><p>Saia das referências de sempre. Explore campanhas brasileiras e internacionais, em diferentes nichos e formatos, com conteúdos traduzidos para o português.</p><ul class="story-points"><li>Cartas e páginas para estudar a construção da oferta.</li><li>Anúncios e VSLs para descobrir ganchos e narrativas.</li><li>Uma biblioteca pessoal para salvar o que interessa.</li></ul><p class="story-takeaway">Mais caminhos para começar. <strong>Mais repertório para escolher.</strong></p></div><div class="feature-art reference-wall"><div class="reference-label"><span>DO ACERVO PARA A SUA BIBLIOTECA</span><b>⌑</b></div><div class="reference-grid"><figure><div class="image-placeholder reference-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><figcaption>Anúncio</figcaption></figure><figure><div class="image-placeholder reference-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><figcaption>VSL</figcaption></figure><figure><div class="image-placeholder reference-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><figcaption>Página</figcaption></figure></div><p>Diferentes abordagens.<br> <strong>Um novo jeito de olhar.</strong></p></div></article>
-<article class="story-panel" id="story-panel-1" aria-labelledby="story-title-1"><div class="feature-copy"><span class="eyebrow">AD BREAKDOWN</span><h3 id="story-title-1">Não pare na leitura.<br> <em>Entenda a escolha.</em></h3><p>Uma boa campanha tem decisões em cada trecho. As análises ajudam você a identificar o papel do gancho, da história, do argumento e da chamada para ação.</p><ul class="story-points"><li>Observe o que abre a conversa com o público.</li><li>Estude como os argumentos se conectam.</li><li>Leve o aprendizado para as suas próprias hipóteses.</li></ul><p class="story-takeaway">Entenda a lógica. <strong>Escreva com a sua voz.</strong></p></div><div class="feature-art breakdown-board"><div class="breakdown-toolbar"><span class="breakdown-dot"></span><span>ANATOMIA DE UMA CAMPANHA</span><b>SWIPE FLOW</b></div><div class="breakdown-preview"><div class="image-placeholder breakdown-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><div><span class="breakdown-kicker">OLHE ALÉM DO CRIATIVO</span><p>Cada escolha<br>tem uma <em>intenção.</em></p><div class="breakdown-pills"><span>Gancho</span><span>Argumento</span><span>Ação</span></div></div><span class="breakdown-cross" aria-hidden="true">✳</span></div><div class="breakdown-layers"><div class="breakdown-layer hook-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">GANCHO</span><p>O que faz alguém parar?</p><small>Uma abertura que desperta curiosidade.</small></div><span class="layer-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div><div class="breakdown-layer argument-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">ARGUMENTO</span><p>O que sustenta a promessa?</p><small>Contexto, benefícios e razões para acreditar.</small></div><span class="layer-glyph" aria-hidden="true">◎</span></div><div class="breakdown-layer action-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">AÇÃO</span><p>Qual é o próximo passo?</p><small>Uma chamada clara para continuar.</small></div><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></div></div><span class="breakdown-footnote">Modelo ilustrativo de leitura de uma campanha.</span></div></article>
-<article class="story-panel" id="story-panel-2" aria-labelledby="story-title-2"><div class="feature-copy"><span class="eyebrow">PESQUISA E CRIAÇÃO, CONECTADAS</span><h3 id="story-title-2">Seu repertório.<br> <em>Dentro do seu fluxo.</em></h3><p>Salve conteúdos com o Spy, organize sua biblioteca e desenvolva ideias com o The Derick. No Ultra, conecte o acervo ao Claude ou ChatGPT via MCP.</p><ul class="story-points"><li>Guarde páginas, anúncios e conteúdos relevantes.</li><li>Use a IA com o contexto das suas referências.</li><li>Ganhe continuidade entre a pesquisa e a criação.</li></ul><a class="text-link" href="#planos">Veja os recursos de cada plano <span><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></a></div><div class="feature-art flow-console"><div class="console-top"><img src="assets/swipe-symbol.png" alt="" width="36" height="36"><span>SEU ESPAÇO DE CRIAÇÃO</span></div><div class="console-library"><div class="image-placeholder console-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><div class="image-placeholder console-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><div class="image-placeholder console-placeholder" role="img" aria-label="Espaço reservado para imagem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div><span>Referências<br> <strong>com contexto.</strong></span></div><div class="console-connection"><span></span><b>↓</b><span></span></div><div class="console-prompt"><span>THE DERICK</span><p>Explore novos ângulos para esta oferta a partir das minhas referências.</p><b>✳</b></div><div class="console-bottom"><span>Spy + Biblioteca + IA</span><span>SEU PRÓXIMO PROJETO <svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></div></div></article>
-</div><div class="story-footer"><span>Da pesquisa à próxima campanha.</span><a href="#planos">Encontre seu plano <svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div></div></section>
-<section class="flow-band flow-band-dark" aria-label="Formatos do acervo"><div class="flow-band-track"><div class="flow-band-group"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>ANÚNCIOS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="15" height="17" rx="2"></rect><path d="M3 7v14h14M10 8h7M10 12h7M10 16h4"></path></svg><span>PÁGINAS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m10 8 6 4-6 4Z"></path></svg><span>VSLs</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>ANÁLISES</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18"></path></svg><span>REFERÊNCIAS GLOBAIS</span></span></div><div class="flow-band-group" aria-hidden="true"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>ANÚNCIOS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="15" height="17" rx="2"></rect><path d="M3 7v14h14M10 8h7M10 12h7M10 16h4"></path></svg><span>PÁGINAS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m10 8 6 4-6 4Z"></path></svg><span>VSLs</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>ANÁLISES</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18"></path></svg><span>REFERÊNCIAS GLOBAIS</span></span></div></div><button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button></section><section class="advantages section-shell"><div class="advantages-title reveal"><span class="eyebrow">O QUE MUDA NA SUA ROTINA</span><h2 data-title-reveal="pink">Mais tempo criando.<br> <em>Mais intenção em cada linha.</em></h2><p>Um bom swipe file acompanha o seu trabalho: na pesquisa, na escrita, na revisão e na próxima rodada de testes.</p></div><div class="advantage-list"><article class="reveal"><span><svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span><div><h3>Velocidade para começar.</h3><p>Encontre referências em diferentes nichos sem reconstruir sua pesquisa a cada briefing. Coloque possibilidades na mesa mais cedo.</p></div></article><article class="reveal"><span>⌕</span><div><h3>Profundidade para aprender.</h3><p>Tenha acesso a campanhas completas e análises que ajudam a conectar a teoria às escolhas feitas em cada peça.</p></div></article><article class="reveal"><span>✳</span><div><h3>Repertório para evoluir.</h3><p>Descubra abordagens, estude estruturas e amplie sua visão do mercado. Transforme o hábito de ler copy em parte do seu processo.</p></div></article><article class="reveal"><span>↔</span><div><h3>Trocas para ir além.</h3><p>No Ultra, aprofunde o aprendizado com o DR Club e amplie suas conexões no grupo de networking pelo WhatsApp.</p></div></article></div></section>
-<section class="conversion-placeholder section-shell"><div class="image-placeholder reveal" role="img" aria-label="Espaço reservado para imagem"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m3 17 5-5 4 4 4-6 5 7"></path></svg><span>Imagem</span></div></section>
-<section class="pricing section-shell" id="planos"><div class="pricing-heading reveal"><span class="eyebrow">ESCOLHA SEU ACESSO</span><h2 data-title-reveal="brand">Seu próximo nível<br> de <em>repertório.</em></h2><p>Do primeiro swipe a uma rotina completa de pesquisa e criação.<br> Escolha o plano que acompanha o seu momento.</p></div><div class="plans"><article class="plan plan-basic"><div class="plan-top"><span>BASIC</span><span class="plan-tag">PRIMEIRO PASSO</span></div><h3>Comece pelo<br> <strong>repertório.</strong></h3><p class="plan-fit">Para organizar referências e começar sua biblioteca de trabalho.</p><div class="price"><strong>R$ 47</strong><span>/ mês</span></div><div class="credit">300 créditos mensais</div><a href="https://swipeflow.com/" class="plan-button" data-plan="basic"><span class="btn-label">Começar com Basic</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a><ul><li>Feed de anúncios, ofertas, páginas e presells</li><li>Biblioteca ilimitada</li><li>Vagas: envie sua candidatura ou publique</li><li>Spy: salve páginas, anúncios e conteúdos</li></ul></article><article class="plan plan-pro"><div class="plan-top"><span>PRO</span><span class="plan-tag">RECOMENDADO</span></div><h3>Mais espaço<br> <strong>para criar.</strong></h3><p class="plan-fit">Para quem pesquisa com frequência e quer criar com o The Derick.</p><div class="price"><strong>R$ 97</strong><span>/ mês</span></div><div class="credit">1.000 créditos mensais</div><a href="https://swipeflow.com/" class="plan-button" data-plan="pro"><span class="btn-label">Entrar no Pro</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a><ul><li>Tudo do Basic</li><li>Feed ilimitado</li><li>Vagas ilimitadas</li><li>The Derick: IA para copy com acesso às peças da Swipe Flow e da sua biblioteca</li></ul></article><article class="plan ultra"><div class="plan-top"><span>ULTRA</span><span class="plan-tag">EXPERIÊNCIA COMPLETA</span></div><h3>Seu processo.<br> <strong>Em outra escala.</strong></h3><p class="plan-fit">Para conectar o acervo, aprofundar o aprendizado e ampliar sua rotina.</p><div class="price"><span>12×</span><strong>R$ 79,72</strong></div><div class="cash">ou R$ 777,77 à vista</div><div class="credit">1.000 créditos mensais + 1.000 extras*</div><a href="https://swipeflow.com/" class="plan-button" data-plan="ultra"><span class="btn-label">Quero o Ultra</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a><ul><li>Tudo do Pro</li><li>Spy ilimitado</li><li>DR Club: aulas e encontros ao vivo</li><li>Conexão com Claude ou ChatGPT via MCP</li><li>Quebra Cloaker: capture o funil original de links camuflados</li><li>Grupo de networking no WhatsApp</li></ul><small class="credit-note">*Os 1.000 créditos extras não expiram.</small></article></div><p class="plan-note">Continue na plataforma Swipe Flow para concluir seu cadastro e assinatura.</p><div class="guarantee guarantee-medallion reveal" role="group" aria-labelledby="guarantee-title"><div class="guarantee-copy"><span class="guarantee-eyebrow">GARANTIA SWIPE FLOW</span><h3 id="guarantee-title">Entre. Explore.<br><em>Decida com calma.</em></h3><p>Acesse a plataforma e conheça o acervo no seu ritmo. Se não fizer sentido para você, solicite o <strong>reembolso em até 7 dias</strong> pelos canais de atendimento da Swipe Flow.</p><span class="guarantee-assurance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Tempo para conhecer. Liberdade para decidir.</span></div><figure class="guarantee-emblem"><img class="guarantee-emblem-image" src="assets/guarantee-medallion.png" width="1254" height="1254" alt="Selo Swipe Flow de 7 dias de garantia" loading="lazy"><svg class="guarantee-orbit" viewBox="0 0 320 320" aria-hidden="true"><defs><path id="guarantee-text-circle" d="M160 25a135 135 0 1 1 0 270a135 135 0 1 1 0-270"></path></defs><text textLength="817" lengthAdjust="spacing"><textPath href="#guarantee-text-circle">7 DIAS DE GARANTIA · SWIPE FLOW · 7 DIAS DE GARANTIA · SWIPE FLOW · </textPath></text></svg></figure></div></section>
-<section class="faq section-shell"><div class="faq-heading"><span class="eyebrow">ANTES DO SEU PRIMEIRO SWIPE</span><h2>Vamos tirar<br> <em>suas dúvidas.</em></h2></div><div class="faq-list">
-<details><summary>O que é um swipe file?<b>+</b></summary><p>É uma coleção de referências de cartas de vendas, vídeos, anúncios e outros conteúdos. Você usa esse repertório para estudar estruturas, descobrir abordagens e desenvolver suas próprias campanhas.</p></details><details><summary>O que vou encontrar na Swipe Flow?<b>+</b></summary><p>Um acervo de anúncios, ofertas, páginas, presells, cartas e vídeos, com referências de diferentes mercados. Você também encontra traduções e análises para estudar as estratégias por trás das campanhas.</p></details><details><summary>Por que ter uma assinatura?<b>+</b></summary><p>Construir e organizar um acervo exige tempo. A Swipe Flow reúne referências e ferramentas em um só lugar, para que você dedique mais energia à pesquisa que importa e ao desenvolvimento das suas ideias.</p></details><details><summary>Preciso ter experiência com copy?<b>+</b></summary><p>Você pode usar o acervo em diferentes momentos da carreira. Quem está começando encontra exemplos para estudar. Quem já cria campanhas pode ampliar suas referências e explorar novos ângulos.</p></details><details><summary>Qual plano devo escolher?<b>+</b></summary><p>O Basic é o ponto de partida para o feed, biblioteca e Spy. O Pro amplia os acessos e inclui o The Derick. O Ultra acrescenta Spy ilimitado, DR Club, MCP, Quebra Cloaker, networking e créditos extras. Compare os recursos acima para escolher.</p></details><details><summary>Como funciona a garantia?<b>+</b></summary><p>Você pode conhecer a plataforma e solicitar o reembolso em até 7 dias, caso decida não continuar. A solicitação deve ser feita pelos canais de atendimento da Swipe Flow.</p></details><details><summary>Como acesso depois de assinar?<b>+</b></summary><p>Escolha um dos planos nesta página e continue na plataforma Swipe Flow para concluir o cadastro e a assinatura. Depois, entre na sua conta para explorar o acervo.</p></details><details><summary>Posso copiar as campanhas do acervo?<b>+</b></summary><p>Os materiais servem como referências de estudo. Observe os princípios, adapte as ideias ao seu público e desenvolva sua própria execução, respeitando os direitos de quem criou o conteúdo original.</p></details></div></section><section class="flow-band flow-band-light" aria-label="Da referência à próxima ideia"><div class="flow-band-track"><div class="flow-band-group"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4Z"></path></svg><span>SALVE UMA IDEIA</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 1 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"></path></svg><span>CONECTE AS REFERÊNCIAS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>CRIE O PRÓXIMO TESTE</span></span></div><div class="flow-band-group" aria-hidden="true"><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4Z"></path></svg><span>SALVE UMA IDEIA</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 1 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"></path></svg><span>CONECTE AS REFERÊNCIAS</span></span><span class="flow-band-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"></path></svg><span>CRIE O PRÓXIMO TESTE</span></span></div></div><button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button></section><section class="final-cta section-shell"><span class="eyebrow">A PRÓXIMA IDEIA ESTÁ MAIS PERTO</span><h2 data-title-reveal="pink">Seu repertório<br> merece <em>esse flow.</em></h2><p>Grandes campanhas para estudar.<br> Novas possibilidades para criar.</p><a class="button pink" href="#planos"><span class="btn-label">Quero entrar na Swipe Flow</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a><div class="footer-wordmark" aria-hidden="true">swipe flow®</div></section></main><footer><a class="brand" href="#"><img src="assets/swipe-symbol.png" alt="" width="32" height="32"><span>swipe flow</span></a><span>© 2026 Swipe Flow. Todos os direitos reservados.</span><a href="#">De volta ao topo ↑</a></footer>
-<div class="cursor" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"></div><div class="preloader" aria-hidden="true"><div class="preloader-brand"><img src="assets/swipe-symbol.png" alt="" width="30" height="30"><span>swipe flow</span></div><div class="preloader-line"></div></div><script src="vendor/gsap.min.js" defer=""></script><script src="vendor/ScrollTrigger.min.js" defer=""></script><script src="vendor/SplitText.min.js" defer=""></script><script src="vendor/lenis.min.js" defer=""></script><script src="app.js" defer=""></script><script src="menu-highlight.js" defer=""></script><script src="guarantee-seal.js" defer=""></script><script src="scroll-experience.js" defer=""></script><script src="title-reveal.js" defer=""></script><script src="flow-bands.js" defer=""></script></body></html>
+
+<!-- ================= HERO ================= -->
+<section class="hero hero-arc" aria-labelledby="hero-title">
+  <div class="hero-backdrop" aria-hidden="true">
+    <span class="hero-grid"></span>
+    <span class="hero-spot hero-spot-a"></span>
+    <span class="hero-spot hero-spot-b"></span>
+    <span class="hero-horizon"></span>
+  </div>
+  <div class="hero-intro">
+    <span class="eyebrow eyebrow-pill" data-reveal data-delay=".05"><i></i>O repertório de quem leva copy a&nbsp;sério</span>
+    <h1 id="hero-title" data-split="words">Grandes campanhas.<br> <em>Ao&nbsp;seu&nbsp;alcance.</em></h1>
+    <p class="hero-lead" data-reveal data-delay=".35">Acesse na íntegra <strong>anúncios, páginas e VSLs do Brasil e do&nbsp;mundo.</strong><br> Estude a copy, entenda a estratégia e encontre o ponto de partida da sua&nbsp;próxima&nbsp;campanha.</p>
+    <div class="hero-actions" data-reveal data-delay=".45">
+      <a class="button pink button-xl" href="#planos"><span class="btn-label">Quero meu acesso&nbsp;agora</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      <span class="trust-line"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Acervo completo · Traduções em português · Análises&nbsp;exclusivas</span>
+    </div>
+    <div class="hero-community" data-reveal data-delay=".55">
+      <div class="community-avatars" aria-hidden="true"><img src="assets/community-avatar-1.svg" width="42" height="42" alt=""><img src="assets/community-avatar-2.svg" width="42" height="42" alt=""><img src="assets/community-avatar-3.svg" width="42" height="42" alt=""><img src="assets/community-avatar-4.svg" width="42" height="42" alt=""></div>
+      <div class="community-caption"><span class="community-label">Copy. Criação. Conexão.</span><span class="community-message">Para quem vive de <strong>copy e&nbsp;criação.</strong></span></div>
+    </div>
+  </div>
+
+  <div class="arc-gallery" role="img" aria-label="Galeria em perspectiva com onze campanhas diferentes do acervo Swipe Flow">
+    <div class="hero-chip hero-chip-left" aria-hidden="true" data-float>
+      <span class="chip-icon"><svg class="ico"><use href="#i-bookmark"/></svg></span>
+      <span class="chip-text"><b>Salvo na biblioteca</b><small>Halogrow · Anúncio</small></span>
+    </div>
+    <div class="hero-chip hero-chip-right" aria-hidden="true" data-float data-float-delay="1.2">
+      <span class="chip-icon"><svg class="ico"><use href="#i-translate"/></svg></span>
+      <span class="chip-text"><b>Tradução pronta</b><small>Português · PT-BR</small></span>
+    </div>
+    <div class="arc-stage">
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/montanha.jpg" alt="" width="800" height="600" style="object-position:40% center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Uma casa&nbsp;na&nbsp;montanha</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/halogrow.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Cuidados com o cabelo</span><h3>Halogrow</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/alimentos.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tip Parents</span><h3>O que vai no&nbsp;seu&nbsp;prato?</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/derila.jpg" alt="" width="800" height="600" style="object-position:70% center" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Conforto ao dormir</span><h3>Derila Ergo</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/entretenimento.jpg" alt="" width="800" height="600" style="object-position:center 25%" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Entretenimento</span><h3>Helen Ganzarolli</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/lulutox.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Bem estar</span><h3>Lulutox</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/compras.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Achados de&nbsp;segunda&nbsp;mão</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/historia.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Learn It Wise</span><h3>Uma descoberta inesperada</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/casamento.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Daily Sport X</span><h3>Um casamento.&nbsp;Uma&nbsp;surpresa.</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/pets.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Tipgalore</span><h3>Um resgate surpreendente</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+      <article class="arc-card arc-offer" aria-hidden="true"><div class="arc-cover"><div class="offer-visual"><img src="assets/offers/rotina.jpg" alt="" width="800" height="600" decoding="async"><span class="offer-type">ANÚNCIO</span></div><div class="offer-copy"><span class="offer-brand">Daily Life Insider</span><h3>Uma nova rotina</h3><span class="offer-source">NO ACERVO SWIPE FLOW <b><svg class="inline-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></b></span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAIXAS CRUZADAS ================= -->
+<div class="band-cross" aria-label="Pesquisa e criação">
+  <section class="flow-band flow-band-pink band-cross-a" aria-label="Pesquise, crie, encontre">
+    <div class="flow-band-track">
+      <div class="flow-band-group">
+        <span class="flow-band-item"><svg class="ico"><use href="#i-globe"/></svg><span>PESQUISE COM INTENÇÃO</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>CRIE COM REPERTÓRIO</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-grid"/></svg><span>ENCONTRE SEU FLOW</span></span>
+        <span class="flow-band-item"><img src="assets/swipe-symbol.png" alt="" width="30" height="30"><span>SWIPE FLOW</span></span>
+      </div>
+      <div class="flow-band-group" aria-hidden="true">
+        <span class="flow-band-item"><svg class="ico"><use href="#i-globe"/></svg><span>PESQUISE COM INTENÇÃO</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>CRIE COM REPERTÓRIO</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-grid"/></svg><span>ENCONTRE SEU FLOW</span></span>
+        <span class="flow-band-item"><img src="assets/swipe-symbol.png" alt="" width="30" height="30"><span>SWIPE FLOW</span></span>
+      </div>
+    </div>
+    <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
+  </section>
+  <section class="flow-band flow-band-light band-cross-b" aria-label="Formatos do acervo">
+    <div class="flow-band-track">
+      <div class="flow-band-group">
+        <span class="flow-band-item"><svg class="ico"><use href="#i-grid"/></svg><span>ANÚNCIOS</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-file"/></svg><span>PÁGINAS</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-play"/></svg><span>VSLs</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>ANÁLISES</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-globe"/></svg><span>REFERÊNCIAS GLOBAIS</span></span>
+      </div>
+      <div class="flow-band-group" aria-hidden="true">
+        <span class="flow-band-item"><svg class="ico"><use href="#i-grid"/></svg><span>ANÚNCIOS</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-file"/></svg><span>PÁGINAS</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-play"/></svg><span>VSLs</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>ANÁLISES</span></span>
+        <span class="flow-band-item"><svg class="ico"><use href="#i-globe"/></svg><span>REFERÊNCIAS GLOBAIS</span></span>
+      </div>
+    </div>
+    <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
+  </section>
+</div>
+
+<!-- ================= TRÊS PILARES ================= -->
+<section class="value-strip container" aria-label="O que você encontra">
+  <div class="value-item" data-reveal>
+    <span class="tile"><svg class="ico"><use href="#i-layers"/></svg></span>
+    <p><strong>Campanhas por&nbsp;inteiro.</strong><span>Do primeiro gancho&nbsp;à&nbsp;oferta.</span></p>
+  </div>
+  <div class="value-item" data-reveal data-delay=".1">
+    <span class="tile"><svg class="ico"><use href="#i-translate"/></svg></span>
+    <p><strong>Conhecimento sem&nbsp;fronteiras.</strong><span>Referências traduzidas para&nbsp;o&nbsp;português.</span></p>
+  </div>
+  <div class="value-item" data-reveal data-delay=".2">
+    <span class="tile"><svg class="ico"><use href="#i-search"/></svg></span>
+    <p><strong>Um olhar além da&nbsp;copy.</strong><span>Análises para entender&nbsp;cada&nbsp;escolha.</span></p>
+  </div>
+</section>
+
+<!-- ================= EDITORIAL ================= -->
+<section class="editorial section-shell" id="metodo">
+  <div class="editorial-heading">
+    <span class="eyebrow" data-reveal>[ Repertório se constrói na prática ]</span>
+    <h2 data-split="lines">Leia uma boa copy.<br> <span class="muted">Depois, leia de&nbsp;novo.</span><br> <em>Agora,&nbsp;enxergue&nbsp;mais.</em></h2>
+    <div class="editorial-ornament" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+  <div class="editorial-body">
+    <p class="lead" data-reveal>Uma das melhores formas de aprender copy é estudar, todos os dias, campanhas que já passaram&nbsp;pelo&nbsp;mercado.</p>
+    <p data-reveal data-delay=".08">O gancho que faz parar. A história que sustenta a atenção. O argumento que apresenta uma nova possibilidade. A oferta que transforma interesse&nbsp;em&nbsp;decisão.</p>
+    <p data-reveal data-delay=".16">Quando você observa essas escolhas de perto, começa a reconhecer padrões. E ganha mais recursos para escrever&nbsp;com&nbsp;intenção.</p>
+    <p data-reveal data-delay=".24"><strong>A Swipe Flow reúne as referências e o&nbsp;contexto.</strong> Você traz o olhar, o seu público e a&nbsp;próxima&nbsp;ideia.</p>
+    <a class="text-link" href="#acervo" data-reveal data-delay=".3">Conheça o que está dentro do&nbsp;acervo <span><svg class="ico"><use href="#i-arrow-down"/></svg></span></a>
+  </div>
+  <div class="editorial-note" data-reveal><span>Menos abas abertas.</span><span class="editorial-note-line"></span><span>Mais ideias em movimento.</span></div>
+</section>
+
+<!-- ================= ACERVO / PLATAFORMA ================= -->
+<section class="archive-intro section-shell platform" id="acervo">
+  <div class="archive-heading">
+    <span class="eyebrow eyebrow-pill" data-reveal><i></i>Seu swipe file, em outro&nbsp;nível</span>
+    <h2 data-split="lines">Um acervo para consultar.<br> <em>Um repertório&nbsp;para&nbsp;levar.</em></h2>
+    <p data-reveal data-delay=".15">Cartas de vendas, anúncios, artigos, páginas e vídeos. Referências organizadas para você encontrar caminhos nos mais variados nichos, estudar grandes campanhas e voltar ao trabalho com&nbsp;novas&nbsp;ideias.</p>
+  </div>
+
+  <div class="platform-shot" data-reveal data-delay=".1">
+    <div class="app" aria-label="Demonstração ilustrativa da plataforma Swipe Flow">
+      <div class="app-bar">
+        <span class="app-dots"><i></i><i></i><i></i></span>
+        <span class="app-url"><svg class="ico"><use href="#i-lock"/></svg>app.swipeflow.com/feed</span>
+        <span class="app-user"><img src="assets/community-avatar-2.svg" alt="" width="22" height="22"></span>
+      </div>
+      <div class="app-body">
+        <aside class="app-side">
+          <div class="app-logo"><img src="assets/swipe-symbol.png" alt="" width="22" height="22"><span>swipe flow</span></div>
+          <a class="app-nav is-active"><svg class="ico"><use href="#i-grid"/></svg>Feed</a>
+          <a class="app-nav"><svg class="ico"><use href="#i-bookmark"/></svg>Biblioteca</a>
+          <a class="app-nav"><svg class="ico"><use href="#i-eye"/></svg>Spy</a>
+          <a class="app-nav"><svg class="ico"><use href="#i-spark"/></svg>The Derick</a>
+          <a class="app-nav"><svg class="ico"><use href="#i-users"/></svg>Vagas</a>
+          <div class="app-side-foot"><span class="app-credit-bar"><i></i></span><small>Créditos do mês</small></div>
+        </aside>
+        <div class="app-main">
+          <div class="app-toolbar">
+            <span class="app-search"><svg class="ico"><use href="#i-search"/></svg>Buscar no acervo<i class="app-caret"></i></span>
+            <div class="app-chips"><span class="is-on">Anúncios</span><span>Páginas</span><span>VSLs</span><span>Cartas</span><span>Presells</span></div>
+          </div>
+          <div class="app-grid">
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/lulutox.jpg" alt="" loading="lazy"><b>ANÚNCIO</b><em>PT-BR</em></div><div class="app-card-copy"><span>Bem estar</span><strong>Lulutox</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/derila.jpg" alt="" loading="lazy" style="object-position:70% center"><b>VSL</b><em>PT-BR</em></div><div class="app-card-copy"><span>Conforto ao dormir</span><strong>Derila Ergo</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card is-target"><div class="app-thumb"><img src="assets/offers/halogrow.jpg" alt="" loading="lazy"><b>ANÚNCIO</b><em>PT-BR</em></div><div class="app-card-copy"><span>Cuidados com o cabelo</span><strong>Halogrow</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/montanha.jpg" alt="" loading="lazy" style="object-position:40% center"><b>PÁGINA</b><em>PT-BR</em></div><div class="app-card-copy"><span>Tipgalore</span><strong>Uma casa na montanha</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/historia.jpg" alt="" loading="lazy"><b>CARTA</b><em>PT-BR</em></div><div class="app-card-copy"><span>Learn It Wise</span><strong>Uma descoberta inesperada</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/casamento.jpg" alt="" loading="lazy"><b>ANÚNCIO</b><em>PT-BR</em></div><div class="app-card-copy"><span>Daily Sport X</span><strong>Um casamento. Uma surpresa.</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/pets.jpg" alt="" loading="lazy"><b>VSL</b><em>PT-BR</em></div><div class="app-card-copy"><span>Tipgalore</span><strong>Um resgate surpreendente</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+            <article class="app-card"><div class="app-thumb"><img src="assets/offers/compras.jpg" alt="" loading="lazy"><b>PÁGINA</b><em>PT-BR</em></div><div class="app-card-copy"><span>Tipgalore</span><strong>Achados de segunda mão</strong></div><span class="app-save" aria-hidden="true"><svg class="ico"><use href="#i-bookmark"/></svg></span></article>
+          </div>
+          <span class="app-pointer" aria-hidden="true"><svg class="ico"><use href="#i-pointer"/></svg></span>
+          <div class="app-toast" aria-hidden="true"><span class="app-toast-check"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Salvo na sua biblioteca</b><small>Halogrow · Anúncio</small></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="archive-foot" data-reveal>
+    <p><strong>Encontre. Salve. Volte quando&nbsp;precisar.</strong><br> Suas melhores referências, reunidas em uma&nbsp;biblioteca&nbsp;pessoal.</p>
+    <span>Anúncios / VSLs / Cartas / Páginas</span>
+  </div>
+</section>
+
+<!-- ================= MURAL DE CAMPANHAS (scroll horizontal) ================= -->
+<section class="wall" aria-labelledby="wall-title">
+  <div class="wall-pin">
+    <div class="wall-head section-shell">
+      <div>
+        <span class="eyebrow" data-reveal>\\ Formatos do acervo</span>
+        <h2 id="wall-title" data-split="lines">Cada formato,&nbsp;<em>por&nbsp;inteiro.</em></h2>
+      </div>
+      <p data-reveal data-delay=".1">Anúncios, VSLs, cartas, páginas e análises. Tudo organizado para você estudar a construção de cada peça, do gancho&nbsp;à&nbsp;oferta.</p>
+    </div>
+    <div class="wall-track">
+      <!-- 01 Anúncio -->
+      <article class="wall-card wall-ad">
+        <header class="wall-card-head"><span>01 /</span><b>Anúncio</b><i>Tradução PT-BR</i></header>
+        <div class="wall-ad-frame">
+          <div class="wall-ad-top"><img src="assets/community-avatar-3.svg" alt="" width="28" height="28"><span><b>Tipgalore</b><small>Patrocinado</small></span></div>
+          <p class="wall-ad-copy">Uma casa na montanha. E uma decisão que&nbsp;ninguém&nbsp;esperava.</p>
+          <div class="wall-ad-media"><img src="assets/offers/montanha.jpg" alt="" loading="lazy" style="object-position:40% center"></div>
+          <div class="wall-ad-cta"><span>Ler a história completa</span><b>Saiba mais</b></div>
+        </div>
+      </article>
+      <!-- 02 VSL -->
+      <article class="wall-card wall-vsl">
+        <header class="wall-card-head"><span>02 /</span><b>VSL</b><i>Transcrição + análise</i></header>
+        <div class="wall-player">
+          <img src="assets/offers/entretenimento.jpg" alt="" loading="lazy" style="object-position:center 25%">
+          <span class="wall-play"><svg class="ico"><use href="#i-play-solid"/></svg></span>
+          <div class="wall-timeline"><i></i></div>
+          <div class="wall-chapters"><span class="is-on">Gancho</span><span>História</span><span>Argumento</span><span>Oferta</span></div>
+        </div>
+        <p class="wall-caption"><b>00:12</b> “Antes de continuar, preciso contar o que aconteceu no&nbsp;último&nbsp;domingo…”</p>
+      </article>
+      <!-- 03 Carta -->
+      <article class="wall-card wall-letter">
+        <header class="wall-card-head"><span>03 /</span><b>Carta de vendas</b><i>Texto íntegro</i></header>
+        <div class="wall-paper">
+          <span class="wall-paper-kicker">Para quem já tentou de tudo</span>
+          <h4>Por que a maioria das rotinas fracassa na segunda semana (e o que&nbsp;mudar&nbsp;hoje)</h4>
+          <p>Se você já começou um plano com toda a energia do mundo e desistiu antes do fim do mês, não é falta de disciplina. <mark>É falta de um sistema que caiba na sua vida real.</mark> Nas próximas linhas, você vai entender por que o método tradicional pede demais de quem tem&nbsp;pouco&nbsp;tempo…</p>
+          <p>…e por que uma mudança pequena, feita no horário certo, costuma valer mais do que uma rotina perfeita que&nbsp;nunca&nbsp;começa.</p>
+          <span class="wall-paper-note">Trecho ilustrativo</span>
+        </div>
+      </article>
+      <!-- 04 Página -->
+      <article class="wall-card wall-page">
+        <header class="wall-card-head"><span>04 /</span><b>Página de vendas</b><i>Captura completa</i></header>
+        <div class="wall-browser">
+          <div class="wall-browser-bar"><i></i><i></i><i></i><span>derila-ergo.oferta</span></div>
+          <div class="wall-site">
+            <div class="wall-site-nav"><b>derila</b><span></span><span></span><em>Comprar</em></div>
+            <div class="wall-site-hero"><h5>Acorde sem dor no pescoço. Todos&nbsp;os&nbsp;dias.</h5><p>O travesseiro ergonômico que se adapta ao seu jeito&nbsp;de&nbsp;dormir.</p><em>Quero experimentar</em></div>
+            <div class="wall-site-img"><img src="assets/offers/derila.jpg" alt="" loading="lazy" style="object-position:70% center"></div>
+            <div class="wall-site-row"><span></span><span></span><span></span></div>
+            <div class="wall-site-block"><b></b><i></i><i></i></div>
+          </div>
+        </div>
+      </article>
+      <!-- 05 Análise -->
+      <article class="wall-card wall-analysis">
+        <header class="wall-card-head"><span>05 /</span><b>Análise</b><i>Ad breakdown</i></header>
+        <div class="wall-analysis-top"><img src="assets/offers/alimentos.jpg" alt="" loading="lazy"><span><b>Tip Parents</b><small>O que vai no&nbsp;seu&nbsp;prato?</small></span></div>
+        <ul class="wall-layers">
+          <li><span>Gancho</span><p>Uma pergunta direta que coloca o leitor no centro&nbsp;da&nbsp;cena.</p></li>
+          <li><span>Argumento</span><p>Um contraste simples entre a rotina atual e a&nbsp;nova&nbsp;possibilidade.</p></li>
+          <li><span>Ação</span><p>Uma chamada clara para&nbsp;continuar&nbsp;lendo.</p></li>
+        </ul>
+      </article>
+      <!-- 06 Biblioteca -->
+      <article class="wall-card wall-library">
+        <header class="wall-card-head"><span>06 /</span><b>Sua biblioteca</b><i>Pessoal e ilimitada</i></header>
+        <div class="wall-folders">
+          <div class="wall-folder"><svg class="ico"><use href="#i-folder"/></svg><span>Ganchos para testar</span></div>
+          <div class="wall-folder"><svg class="ico"><use href="#i-folder"/></svg><span>Ofertas de bem-estar</span></div>
+          <div class="wall-folder"><svg class="ico"><use href="#i-folder"/></svg><span>Páginas longas</span></div>
+        </div>
+        <div class="wall-saved">
+          <span>Salvos recentemente</span>
+          <div class="wall-saved-row"><img src="assets/offers/pets.jpg" alt="" loading="lazy"><img src="assets/offers/rotina.jpg" alt="" loading="lazy"><img src="assets/offers/casamento.jpg" alt="" loading="lazy"><img src="assets/offers/compras.jpg" alt="" loading="lazy"></div>
+        </div>
+        <p class="wall-library-note">Encontre. Salve. Volte&nbsp;quando&nbsp;precisar.</p>
+      </article>
+      <article class="wall-card wall-end">
+        <span class="eyebrow">Tudo isso no acervo</span>
+        <h3>Comece pela sua&nbsp;próxima&nbsp;<em>referência.</em></h3>
+        <a class="button pink" href="#planos"><span class="btn-label">Ver os&nbsp;planos</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      </article>
+    </div>
+    <div class="wall-progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- ================= STORY (pinned) ================= -->
+<section class="story-section section-shell" id="recursos">
+  <div class="story-heading">
+    <span class="eyebrow eyebrow-pill" data-reveal><i></i>A referência é o&nbsp;começo</span>
+    <h2 data-split="lines">Entre na campanha.<br> <em>Saia com&nbsp;mais&nbsp;contexto.</em></h2>
+  </div>
+  <div class="story-pin">
+    <div class="story-bar">
+      <div class="story-nav" aria-label="Explore os recursos">
+        <button class="story-tab active" data-story-step="0" aria-controls="story-panel-0" aria-current="step">Explore o acervo</button>
+        <button class="story-tab" data-story-step="1" aria-controls="story-panel-1">Entenda a estratégia</button>
+        <button class="story-tab" data-story-step="2" aria-controls="story-panel-2">Crie no seu ritmo</button>
+      </div>
+      <span class="story-scroll-label">Continue explorando <svg class="ico"><use href="#i-arrow-down"/></svg></span>
+    </div>
+    <div class="story-meter" aria-hidden="true"><span></span></div>
+    <div class="story-stage">
+
+      <article class="story-panel" id="story-panel-0" aria-labelledby="story-title-0">
+        <div class="feature-copy">
+          <span class="eyebrow">[ Referências globais ]</span>
+          <h3 id="story-title-0">A próxima ideia pode<br> vir de&nbsp;<em>outro&nbsp;mercado.</em></h3>
+          <p>Saia das referências de sempre. Explore campanhas brasileiras e internacionais, em diferentes nichos e formatos, com conteúdos traduzidos para&nbsp;o&nbsp;português.</p>
+          <ul class="story-points">
+            <li>Cartas e páginas para estudar a construção&nbsp;da&nbsp;oferta.</li>
+            <li>Anúncios e VSLs para descobrir ganchos&nbsp;e&nbsp;narrativas.</li>
+            <li>Uma biblioteca pessoal para salvar o&nbsp;que&nbsp;interessa.</li>
+          </ul>
+          <p class="story-takeaway">Mais caminhos para começar. <strong>Mais repertório&nbsp;para&nbsp;escolher.</strong></p>
+        </div>
+        <div class="feature-art reference-wall">
+          <div class="reference-label"><span>Do acervo para a sua biblioteca</span><b><svg class="ico"><use href="#i-bookmark"/></svg></b></div>
+          <div class="reference-grid">
+            <figure class="ref-ad"><div class="ref-media"><img src="assets/offers/alimentos.jpg" alt="" loading="lazy"><b>ANÚNCIO</b></div><figcaption>Anúncio<small>Tip Parents</small></figcaption></figure>
+            <figure class="ref-vsl"><div class="ref-media"><img src="assets/offers/historia.jpg" alt="" loading="lazy"><span class="ref-play"><svg class="ico"><use href="#i-play-solid"/></svg></span><span class="ref-bar"><i></i></span></div><figcaption>VSL<small>Learn It Wise</small></figcaption></figure>
+            <figure class="ref-page"><div class="ref-media ref-page-media"><span class="ref-page-nav"></span><span class="ref-page-title"></span><span class="ref-page-line"></span><img src="assets/offers/compras.jpg" alt="" loading="lazy"><span class="ref-page-btn"></span></div><figcaption>Página<small>Tipgalore</small></figcaption></figure>
+          </div>
+          <p>Diferentes abordagens.<br> <strong>Um novo jeito&nbsp;de&nbsp;olhar.</strong></p>
+        </div>
+      </article>
+
+      <article class="story-panel" id="story-panel-1" aria-labelledby="story-title-1">
+        <div class="feature-copy">
+          <span class="eyebrow">[ Ad breakdown ]</span>
+          <h3 id="story-title-1">Não pare na leitura.<br> <em>Entenda&nbsp;a&nbsp;escolha.</em></h3>
+          <p>Uma boa campanha tem decisões em cada trecho. As análises ajudam você a identificar o papel do gancho, da história, do argumento e da chamada&nbsp;para&nbsp;ação.</p>
+          <ul class="story-points">
+            <li>Observe o que abre a conversa com&nbsp;o&nbsp;público.</li>
+            <li>Estude como os argumentos&nbsp;se&nbsp;conectam.</li>
+            <li>Leve o aprendizado para as suas&nbsp;próprias&nbsp;hipóteses.</li>
+          </ul>
+          <p class="story-takeaway">Entenda a lógica. <strong>Escreva com a&nbsp;sua&nbsp;voz.</strong></p>
+        </div>
+        <div class="feature-art breakdown-board">
+          <div class="breakdown-toolbar"><span class="breakdown-dot"></span><span>Anatomia de uma campanha</span><b>SWIPE FLOW</b></div>
+          <div class="breakdown-preview">
+            <img src="assets/offers/lulutox.jpg" alt="" loading="lazy">
+            <div><span class="breakdown-kicker">Olhe além do criativo</span><p>Cada escolha<br>tem&nbsp;uma&nbsp;<em>intenção.</em></p><div class="breakdown-pills"><span>Gancho</span><span>Argumento</span><span>Ação</span></div></div>
+          </div>
+          <div class="breakdown-layers">
+            <div class="breakdown-layer hook-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">Gancho</span><p>O que faz&nbsp;alguém&nbsp;parar?</p><small>Uma abertura que&nbsp;desperta&nbsp;curiosidade.</small></div><span class="layer-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+            <div class="breakdown-layer argument-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">Argumento</span><p>O que sustenta&nbsp;a&nbsp;promessa?</p><small>Contexto, benefícios e razões&nbsp;para&nbsp;acreditar.</small></div><span class="layer-glyph" aria-hidden="true"><svg class="ico"><use href="#i-compass"/></svg></span></div>
+            <div class="breakdown-layer action-layer"><span class="layer-node" aria-hidden="true"></span><div><span class="layer-label">Ação</span><p>Qual é o&nbsp;próximo&nbsp;passo?</p><small>Uma chamada clara&nbsp;para&nbsp;continuar.</small></div><svg class="ico layer-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+          </div>
+          <span class="breakdown-footnote">Modelo ilustrativo de leitura de uma campanha.</span>
+        </div>
+      </article>
+
+      <article class="story-panel" id="story-panel-2" aria-labelledby="story-title-2">
+        <div class="feature-copy">
+          <span class="eyebrow">[ Pesquisa e criação, conectadas ]</span>
+          <h3 id="story-title-2">Seu repertório.<br> <em>Dentro do&nbsp;seu&nbsp;fluxo.</em></h3>
+          <p>Salve conteúdos com o Spy, organize sua biblioteca e desenvolva ideias com o The Derick. No Ultra, conecte o acervo ao Claude ou ChatGPT&nbsp;via&nbsp;MCP.</p>
+          <ul class="story-points">
+            <li>Guarde páginas, anúncios e&nbsp;conteúdos&nbsp;relevantes.</li>
+            <li>Use a IA com o contexto das&nbsp;suas&nbsp;referências.</li>
+            <li>Ganhe continuidade entre a pesquisa e&nbsp;a&nbsp;criação.</li>
+          </ul>
+          <a class="text-link" href="#planos">Veja os recursos de cada&nbsp;plano <span><svg class="ico"><use href="#i-arrow"/></svg></span></a>
+        </div>
+        <div class="feature-art flow-console">
+          <div class="console-top"><img src="assets/swipe-symbol.png" alt="" width="36" height="36"><span>Seu espaço de criação</span></div>
+          <div class="console-library">
+            <div class="console-stack"><img src="assets/offers/pets.jpg" alt="" loading="lazy"><img src="assets/offers/derila.jpg" alt="" loading="lazy" style="object-position:70% center"><img src="assets/offers/casamento.jpg" alt="" loading="lazy"></div>
+            <span>Referências<br> <strong>com&nbsp;contexto.</strong></span>
+          </div>
+          <div class="console-connection"><span></span><b><svg class="ico"><use href="#i-arrow-down"/></svg></b><span></span></div>
+          <div class="console-prompt"><span>The Derick</span><p>Explore novos ângulos para esta oferta a partir das&nbsp;minhas&nbsp;referências.</p><b><svg class="ico"><use href="#i-spark"/></svg></b></div>
+          <div class="console-bottom"><span>Spy + Biblioteca + IA</span><span>Seu próximo projeto <svg class="ico"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="story-footer"><span>Da pesquisa à próxima campanha.</span><a href="#planos">Encontre seu plano <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ================= FAIXA ESCURA ================= -->
+<section class="flow-band flow-band-dark" aria-label="Da referência à próxima ideia">
+  <div class="flow-band-track">
+    <div class="flow-band-group">
+      <span class="flow-band-item"><svg class="ico"><use href="#i-bookmark"/></svg><span>SALVE UMA IDEIA</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-link"/></svg><span>CONECTE AS REFERÊNCIAS</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>CRIE O PRÓXIMO TESTE</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-compass"/></svg><span>ENCONTRE SEU FLOW</span></span>
+    </div>
+    <div class="flow-band-group" aria-hidden="true">
+      <span class="flow-band-item"><svg class="ico"><use href="#i-bookmark"/></svg><span>SALVE UMA IDEIA</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-link"/></svg><span>CONECTE AS REFERÊNCIAS</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-spark"/></svg><span>CRIE O PRÓXIMO TESTE</span></span>
+      <span class="flow-band-item"><svg class="ico"><use href="#i-compass"/></svg><span>ENCONTRE SEU FLOW</span></span>
+    </div>
+  </div>
+  <button class="flow-band-toggle" type="button" aria-label="Pausar movimento da faixa" aria-pressed="false"><svg class="band-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg><svg class="band-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"></path></svg></button>
+</section>
+
+<!-- ================= VANTAGENS (cards empilhados) ================= -->
+<section class="advantages section-shell">
+  <div class="advantages-title">
+    <span class="eyebrow eyebrow-pill" data-reveal><i></i>O que muda na sua&nbsp;rotina</span>
+    <h2 data-split="lines">Mais tempo criando.<br> <em>Mais intenção em&nbsp;cada&nbsp;linha.</em></h2>
+    <p data-reveal data-delay=".1">Um bom swipe file acompanha o seu trabalho: na pesquisa, na escrita, na revisão e na próxima rodada&nbsp;de&nbsp;testes.</p>
+    <a class="text-link" href="#planos" data-reveal data-delay=".2">Ver os&nbsp;planos <span><svg class="ico"><use href="#i-arrow"/></svg></span></a>
+  </div>
+  <div class="advantage-stack">
+    <article class="advantage-card">
+      <div class="advantage-head"><span class="tile"><svg class="ico"><use href="#i-zap"/></svg></span><span class="advantage-index">01 /</span></div>
+      <h3>Velocidade&nbsp;para&nbsp;começar.</h3>
+      <p>Encontre referências em diferentes nichos sem reconstruir sua pesquisa a cada briefing. Coloque possibilidades na mesa&nbsp;mais&nbsp;cedo.</p>
+      <div class="advantage-visual advantage-visual-speed" aria-hidden="true"><span><i>Nicho</i>Bem-estar</span><span><i>Formato</i>VSL</span><span><i>Idioma</i>PT-BR</span><span class="is-result"><b>Resultados</b>prontos para estudar</span></div>
+    </article>
+    <article class="advantage-card">
+      <div class="advantage-head"><span class="tile"><svg class="ico"><use href="#i-search"/></svg></span><span class="advantage-index">02 /</span></div>
+      <h3>Profundidade&nbsp;para&nbsp;aprender.</h3>
+      <p>Tenha acesso a campanhas completas e análises que ajudam a conectar a teoria às escolhas feitas em&nbsp;cada&nbsp;peça.</p>
+      <div class="advantage-visual advantage-visual-depth" aria-hidden="true"><span class="is-on">Gancho</span><span>História</span><span>Argumento</span><span>Oferta</span></div>
+    </article>
+    <article class="advantage-card">
+      <div class="advantage-head"><span class="tile"><svg class="ico"><use href="#i-layers"/></svg></span><span class="advantage-index">03 /</span></div>
+      <h3>Repertório&nbsp;para&nbsp;evoluir.</h3>
+      <p>Descubra abordagens, estude estruturas e amplie sua visão do mercado. Transforme o hábito de ler copy em parte do&nbsp;seu&nbsp;processo.</p>
+      <div class="advantage-visual advantage-visual-library" aria-hidden="true"><img src="assets/offers/alimentos.jpg" alt="" loading="lazy"><img src="assets/offers/historia.jpg" alt="" loading="lazy"><img src="assets/offers/rotina.jpg" alt="" loading="lazy"><img src="assets/offers/montanha.jpg" alt="" loading="lazy"></div>
+    </article>
+    <article class="advantage-card">
+      <div class="advantage-head"><span class="tile"><svg class="ico"><use href="#i-users"/></svg></span><span class="advantage-index">04 /</span></div>
+      <h3>Trocas para&nbsp;ir&nbsp;além.</h3>
+      <p>No Ultra, aprofunde o aprendizado com o DR Club e amplie suas conexões no grupo de networking&nbsp;pelo&nbsp;WhatsApp.</p>
+      <div class="advantage-visual advantage-visual-club" aria-hidden="true"><div class="community-avatars"><img src="assets/community-avatar-1.svg" alt="" width="36" height="36"><img src="assets/community-avatar-2.svg" alt="" width="36" height="36"><img src="assets/community-avatar-3.svg" alt="" width="36" height="36"><img src="assets/community-avatar-4.svg" alt="" width="36" height="36"></div><span><b>DR Club</b>aulas e encontros ao vivo</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= BENTO: SPY · BIBLIOTECA · THE DERICK · MCP ================= -->
+<section class="studio section-shell" aria-labelledby="studio-title">
+  <div class="studio-heading">
+    <span class="eyebrow" data-reveal>[ Spy · Biblioteca · The Derick · MCP ]</span>
+    <h2 id="studio-title" data-split="lines">Suas referências,<br> <em>do lado&nbsp;da&nbsp;criação.</em></h2>
+    <p data-reveal data-delay=".1">Salve com o Spy, organize na biblioteca e desenvolva ideias com o The Derick. No Ultra, conecte o acervo ao Claude ou ChatGPT&nbsp;via&nbsp;MCP.</p>
+  </div>
+  <div class="bento">
+    <!-- Chat -->
+    <article class="bento-card bento-chat" data-reveal>
+      <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-spark"/></svg></span><span><b>The Derick</b><small>IA para copy, com acesso às peças da Swipe Flow e da&nbsp;sua&nbsp;biblioteca</small></span></div>
+      <div class="chat">
+        <div class="chat-msg chat-user">
+          <p>Explore novos ângulos para esta oferta a partir das&nbsp;minhas&nbsp;referências.</p>
+          <div class="chat-context"><span>Contexto:</span><i><img src="assets/offers/lulutox.jpg" alt="">Lulutox</i><i><img src="assets/offers/derila.jpg" alt="">Derila Ergo</i><i><img src="assets/offers/halogrow.jpg" alt="">Halogrow</i></div>
+        </div>
+        <div class="chat-msg chat-ai">
+          <div class="chat-typing" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="chat-answer">
+            <p class="chat-intro">Três ângulos para testar, a partir do que&nbsp;você&nbsp;salvou:</p>
+            <ol class="chat-angles">
+              <li><span>01</span><div><b>Rotina</b><p>Comece pela manhã de quem já desistiu&nbsp;de&nbsp;tentar.</p></div></li>
+              <li><span>02</span><div><b>Contraste</b><p>O que muda quando a promessa vira um&nbsp;hábito&nbsp;simples.</p></div></li>
+              <li><span>03</span><div><b>Curiosidade</b><p>O detalhe que quase ninguém nota na&nbsp;primeira&nbsp;leitura.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input"><span>Peça uma variação, um gancho ou uma nova estrutura…</span><b><svg class="ico"><use href="#i-arrow"/></svg></b></div>
+      <small class="bento-note">Demonstração ilustrativa.</small>
+    </article>
+    <!-- Spy -->
+    <article class="bento-card bento-spy" data-reveal data-delay=".1">
+      <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-eye"/></svg></span><span><b>Spy</b><small>Salve páginas, anúncios e conteúdos com&nbsp;um&nbsp;clique</small></span></div>
+      <div class="spy-visual" aria-hidden="true">
+        <div class="spy-bar"><i></i><i></i><i></i><span>qualquer-pagina.com/oferta</span><em><img src="assets/swipe-symbol.png" alt="" width="18" height="18"></em></div>
+        <div class="spy-page"><span></span><span></span><span class="is-short"></span></div>
+        <div class="spy-toast"><svg class="ico"><use href="#i-check"/></svg><span>Página salva na biblioteca</span></div>
+        <span class="spy-pointer"><svg class="ico"><use href="#i-pointer"/></svg></span>
+      </div>
+    </article>
+    <!-- MCP -->
+    <article class="bento-card bento-mcp" data-reveal data-delay=".2">
+      <div class="bento-tag"><span class="tile tile-sm"><svg class="ico"><use href="#i-link"/></svg></span><span><b>Conexão via MCP</b><small>No Ultra, use o acervo dentro do Claude ou&nbsp;do&nbsp;ChatGPT</small></span></div>
+      <div class="mcp-visual" aria-hidden="true">
+        <span class="mcp-node mcp-node-a">Claude</span>
+        <span class="mcp-line"><i></i></span>
+        <span class="mcp-core"><img src="assets/swipe-symbol.png" alt="" width="40" height="40"></span>
+        <span class="mcp-line mcp-line-b"><i></i></span>
+        <span class="mcp-node mcp-node-b">ChatGPT</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PLANOS ================= -->
+<section class="pricing section-shell" id="planos">
+  <div class="pricing-heading">
+    <span class="eyebrow eyebrow-pill" data-reveal><i></i>Escolha seu&nbsp;acesso</span>
+    <h2 data-split="lines">Seu próximo nível<br>&nbsp;de&nbsp;<em>repertório.</em></h2>
+    <p data-reveal data-delay=".1">Do primeiro swipe a uma rotina completa de pesquisa e&nbsp;criação.<br> Escolha o plano que acompanha o&nbsp;seu&nbsp;momento.</p>
+  </div>
+  <div class="plans">
+    <article class="plan plan-basic">
+      <div class="plan-top"><span>BASIC</span><span class="plan-tag">Primeiro passo</span></div>
+      <h3>Comece pelo<br> <em>repertório.</em></h3>
+      <p class="plan-fit">Para organizar referências e começar sua biblioteca&nbsp;de&nbsp;trabalho.</p>
+      <div class="price"><strong>R$ 47</strong><span>/ mês</span></div>
+      <div class="credit">300 créditos mensais</div>
+      <a href="https://swipeflow.com/" class="plan-button" data-plan="basic"><span class="btn-label">Começar com&nbsp;Basic</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      <ul>
+        <li>Feed de anúncios, ofertas, páginas&nbsp;e&nbsp;presells</li>
+        <li>Biblioteca ilimitada</li>
+        <li>Vagas: envie sua candidatura&nbsp;ou&nbsp;publique</li>
+        <li>Spy: salve páginas, anúncios&nbsp;e&nbsp;conteúdos</li>
+      </ul>
+    </article>
+    <article class="plan plan-pro">
+      <div class="plan-top"><span>PRO</span><span class="plan-tag">Recomendado</span></div>
+      <h3>Mais espaço<br> <em>para&nbsp;criar.</em></h3>
+      <p class="plan-fit">Para quem pesquisa com frequência e quer criar com o&nbsp;The&nbsp;Derick.</p>
+      <div class="price"><strong>R$ 97</strong><span>/ mês</span></div>
+      <div class="credit">1.000 créditos mensais</div>
+      <a href="https://swipeflow.com/" class="plan-button" data-plan="pro"><span class="btn-label">Entrar no&nbsp;Pro</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      <ul>
+        <li>Tudo do Basic</li>
+        <li>Feed ilimitado</li>
+        <li>Vagas ilimitadas</li>
+        <li>The Derick: IA para copy com acesso às peças da Swipe Flow e da&nbsp;sua&nbsp;biblioteca</li>
+      </ul>
+    </article>
+    <article class="plan ultra">
+      <div class="plan-top"><span>ULTRA</span><span class="plan-tag">Experiência completa</span></div>
+      <h3>Seu processo.<br> <em>Em&nbsp;outra&nbsp;escala.</em></h3>
+      <p class="plan-fit">Para conectar o acervo, aprofundar o aprendizado e ampliar&nbsp;sua&nbsp;rotina.</p>
+      <div class="price"><span>12×</span><strong>R$ 79,72</strong></div>
+      <div class="cash">ou R$ 777,77 à vista</div>
+      <div class="credit">1.000 créditos mensais + 1.000 extras*</div>
+      <a href="https://swipeflow.com/" class="plan-button" data-plan="ultra"><span class="btn-label">Quero o&nbsp;Ultra</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      <ul>
+        <li>Tudo do Pro</li>
+        <li>Spy ilimitado</li>
+        <li>DR Club: aulas e encontros&nbsp;ao&nbsp;vivo</li>
+        <li>Conexão com Claude ou ChatGPT&nbsp;via&nbsp;MCP</li>
+        <li>Quebra Cloaker: capture o funil original de&nbsp;links&nbsp;camuflados</li>
+        <li>Grupo de networking&nbsp;no&nbsp;WhatsApp</li>
+      </ul>
+      <small class="credit-note">*Os 1.000 créditos extras&nbsp;não&nbsp;expiram.</small>
+    </article>
+  </div>
+  <p class="plan-note" data-reveal><svg class="ico"><use href="#i-lock"/></svg>Continue na plataforma Swipe Flow para concluir seu cadastro&nbsp;e&nbsp;assinatura.</p>
+
+  <div class="guarantee guarantee-medallion" role="group" aria-labelledby="guarantee-title" data-reveal>
+    <div class="guarantee-copy">
+      <span class="guarantee-eyebrow">[ Garantia Swipe Flow ]</span>
+      <h3 id="guarantee-title">Entre. Explore.<br><em>Decida&nbsp;com&nbsp;calma.</em></h3>
+      <p>Acesse a plataforma e conheça o acervo no seu ritmo. Se não fizer sentido para você, solicite o <strong>reembolso em até 7&nbsp;dias</strong> pelos canais de atendimento da&nbsp;Swipe&nbsp;Flow.</p>
+      <span class="guarantee-assurance"><svg class="ico"><use href="#i-check"/></svg>Tempo para conhecer. Liberdade para&nbsp;decidir.</span>
+    </div>
+    <figure class="guarantee-emblem">
+      <img class="guarantee-emblem-image" src="assets/guarantee-medallion.webp" width="700" height="700" alt="Selo Swipe Flow de 7 dias de garantia" loading="lazy">
+      <svg class="guarantee-orbit" viewBox="0 0 320 320" aria-hidden="true"><defs><path id="guarantee-text-circle" d="M160 25a135 135 0 1 1 0 270a135 135 0 1 1 0-270"></path></defs><text textLength="817" lengthAdjust="spacing"><textPath href="#guarantee-text-circle">7 DIAS DE GARANTIA · SWIPE FLOW · 7 DIAS DE GARANTIA · SWIPE FLOW · </textPath></text></svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq section-shell">
+  <div class="faq-heading">
+    <span class="eyebrow eyebrow-pill" data-reveal><i></i>Antes do seu primeiro&nbsp;swipe</span>
+    <h2 data-split="lines">Vamos tirar<br> <em>suas&nbsp;dúvidas.</em></h2>
+    <p data-reveal data-delay=".1">Se ficou algo sem resposta, fale com a equipe pelos canais de atendimento da&nbsp;Swipe&nbsp;Flow.</p>
+  </div>
+  <div class="faq-list" data-reveal-group>
+    <details><summary><i>/01</i><span>O que é um&nbsp;swipe&nbsp;file?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>É uma coleção de referências de cartas de vendas, vídeos, anúncios e outros conteúdos. Você usa esse repertório para estudar estruturas, descobrir abordagens e desenvolver suas&nbsp;próprias&nbsp;campanhas.</p></div></details>
+    <details><summary><i>/02</i><span>O que vou encontrar na&nbsp;Swipe&nbsp;Flow?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Um acervo de anúncios, ofertas, páginas, presells, cartas e vídeos, com referências de diferentes mercados. Você também encontra traduções e análises para estudar as estratégias por trás&nbsp;das&nbsp;campanhas.</p></div></details>
+    <details><summary><i>/03</i><span>Por que ter&nbsp;uma&nbsp;assinatura?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Construir e organizar um acervo exige tempo. A Swipe Flow reúne referências e ferramentas em um só lugar, para que você dedique mais energia à pesquisa que importa e ao desenvolvimento das&nbsp;suas&nbsp;ideias.</p></div></details>
+    <details><summary><i>/04</i><span>Preciso ter experiência&nbsp;com&nbsp;copy?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Você pode usar o acervo em diferentes momentos da carreira. Quem está começando encontra exemplos para estudar. Quem já cria campanhas pode ampliar suas referências e explorar&nbsp;novos&nbsp;ângulos.</p></div></details>
+    <details><summary><i>/05</i><span>Qual plano&nbsp;devo&nbsp;escolher?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>O Basic é o ponto de partida para o feed, biblioteca e Spy. O Pro amplia os acessos e inclui o The Derick. O Ultra acrescenta Spy ilimitado, DR Club, MCP, Quebra Cloaker, networking e créditos extras. Compare os recursos acima&nbsp;para&nbsp;escolher.</p></div></details>
+    <details><summary><i>/06</i><span>Como funciona&nbsp;a&nbsp;garantia?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Você pode conhecer a plataforma e solicitar o reembolso em até 7 dias, caso decida não continuar. A solicitação deve ser feita pelos canais de atendimento da&nbsp;Swipe&nbsp;Flow.</p></div></details>
+    <details><summary><i>/07</i><span>Como acesso depois&nbsp;de&nbsp;assinar?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Escolha um dos planos nesta página e continue na plataforma Swipe Flow para concluir o cadastro e a assinatura. Depois, entre na sua conta para explorar&nbsp;o&nbsp;acervo.</p></div></details>
+    <details><summary><i>/08</i><span>Posso copiar as campanhas&nbsp;do&nbsp;acervo?</span><b><svg class="ico"><use href="#i-plus"/></svg></b></summary><div class="faq-body"><p>Os materiais servem como referências de estudo. Observe os princípios, adapte as ideias ao seu público e desenvolva sua própria execução, respeitando os direitos de quem criou o&nbsp;conteúdo&nbsp;original.</p></div></details>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final-cta section-shell">
+  <div class="final-backdrop" aria-hidden="true"><span class="hero-grid"></span><span class="hero-spot hero-spot-c"></span></div>
+  <div class="final-inner">
+    <span class="final-symbol" data-reveal><img src="assets/swipe-symbol.png" alt="" width="64" height="64"></span>
+    <span class="eyebrow" data-reveal data-delay=".05">[ A próxima ideia está mais perto ]</span>
+    <h2 data-split="words">Seu repertório<br> merece&nbsp;<em>esse&nbsp;flow.</em></h2>
+    <p data-reveal data-delay=".2">Grandes campanhas para&nbsp;estudar.<br> Novas possibilidades&nbsp;para&nbsp;criar.</p>
+    <div class="hero-actions" data-reveal data-delay=".3">
+      <a class="button pink button-xl" href="#planos"><span class="btn-label">Quero entrar na Swipe&nbsp;Flow</span><span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+      <span class="trust-line"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>7 dias de garantia · Cancele quando&nbsp;quiser</span>
+    </div>
+  </div>
+  <div class="footer-wordmark" aria-hidden="true" data-wordmark><span>swipe flow®</span><span>swipe flow®</span></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="brand" href="#"><img src="assets/swipe-symbol.png" alt="" width="32" height="32"><span>swipe flow</span></a>
+    <nav class="footer-nav" aria-label="Rodapé"><a href="#acervo">O acervo</a><a href="#metodo">Por que Swipe Flow</a><a href="#planos">Planos</a><a href="#">Voltar ao topo <svg class="ico"><use href="#i-arrow-ne"/></svg></a></nav>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 Swipe Flow. Todos os direitos reservados.</span>
+    <a class="made-by" href="https://instagram.com/zeph.rafa" target="_blank" rel="noopener"><svg class="ico"><use href="#i-instagram"/></svg>Feito por @zeph.rafa</a>
+  </div>
+</footer>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader-brand"><img src="assets/swipe-symbol.png" alt="" width="34" height="34"><span>swipe flow</span></div>
+  <div class="preloader-line"><i></i></div>
+</div>
+
+<script src="vendor/gsap.min.js" defer=""></script>
+<script src="vendor/ScrollTrigger.min.js" defer=""></script>
+<script src="vendor/SplitText.min.js" defer=""></script>
+<script src="vendor/lenis.min.js" defer=""></script>
+<script src="app.js" defer=""></script>
+<script src="menu-highlight.js" defer=""></script>
+<script src="guarantee-seal.js" defer=""></script>
+<script src="scroll-experience.js" defer=""></script>
+<script src="motion.js" defer=""></script>
+<script src="flow-bands.js" defer=""></script>
+</body>
+</html>
