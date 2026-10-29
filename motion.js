@@ -55,13 +55,13 @@
       pieces.forEach(p => { const k = p.getBoundingClientRect(); l = Math.min(l, k.left); t = Math.min(t, k.top); r = Math.max(r, k.right); b = Math.max(b, k.bottom); });
       return { x: l - base.left - pad, y: t - base.top - pad, w: r - l + pad * 2, h: b - t + pad * 2 };
     };
-    const tl = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 3.2, defaults: { ease: 'power2.inOut' } });
+    const tl = gsap.timeline({ paused: true, delay: 1.5, repeat: -1, repeatDelay: 3.2, defaults: { ease: 'power2.inOut' } });
     tl.add(() => {
       const { x, y, w, h } = measure();
       tag.textContent = `${Math.round(w - pad * 2)} × ${Math.round(h - pad * 2)}`;
       gsap.set(box, { left: x, top: y, width: 0, height: 0, opacity: 0 });
       gsap.set(handles, { left: x - 5, top: y - 5, width: w + 10, height: h + 10, opacity: 0, scale: .6, transformOrigin: '50% 50%' });
-      gsap.set(tag, { left: x + w / 2, top: y + h + 8, xPercent: -50, opacity: 0, y: -6 });
+      gsap.set(tag, { left: x + w / 2, top: y + h + 3, xPercent: -50, opacity: 0, y: -6 });
       gsap.set(cursor, { x: x + w * .78, y: y + h + 34, opacity: 0, scale: 1 });
     });
     tl.to(cursor, { opacity: 1, duration: .25 }, .05)
@@ -114,7 +114,9 @@
         const targets = mode === 'words' ? self.words : self.lines;
         const vars = {
           yPercent: 115, duration: mode === 'words' ? 1.1 : 1.05, ease: 'power4.out',
-          stagger: mode === 'words' ? .05 : .1
+          stagger: mode === 'words' ? .05 : .1,
+          /* Terminada a entrada, a máscara deixa de recortar (a seleção animada precisa sair da linha). */
+          onComplete: () => gsap.set(self.masks, { overflow: 'visible' })
         };
         if (inHero) {
           const tween = gsap.from(targets, { ...vars, paused: !introDone });
